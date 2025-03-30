@@ -4,7 +4,7 @@
 * 想了解更详细的信息，请前往 https://makecode.microbit.org/blocks/custom
 */
 
-enum Pins {
+enum AnPins {
     //% block="P0"
     P0 = AnalogPin.P0,
     //% block="P1"
@@ -13,6 +13,17 @@ enum Pins {
     P2 = AnalogPin.P2,
     //% block="P3"
     P3 = AnalogPin.P3
+}
+
+enum DgPins {
+    //% block="P0"
+    P0 = DigitalPin.P0,
+    //% block="P1"
+    P1 = DigitalPin.P1,
+    //% block="P2"
+    P2 = DigitalPin.P2,
+    //% block="P3"
+    P3 = DigitalPin.P3
 }
 
 /**
@@ -44,7 +55,7 @@ namespace mqlib {
     //% block='270度：设置 $p 舵机角度 $v'
     //% group='servo'
     //% v.min=0 v.max=270 v.defl=0
-    export function setSteer270(p: Pins, v: number): void {
+    export function setSteer270(p: AnPins, v: number): void {
         pins.servoWritePin(p, Math.map(v, 0, 270, 0, 180));
     }
 
@@ -55,7 +66,7 @@ namespace mqlib {
     //% block='100度：设置 $p 舵机角度 $v'
     //% group='servo'
     //% v.min=0 v.max=100 v.defl=0
-    export function setSteer100(p: Pins, v: number): void {
+    export function setSteer100(p: AnPins, v: number): void {
         pins.servoWritePin(p, Math.map(v, 0, 270, 0, 100));
     }
 
@@ -66,7 +77,7 @@ namespace mqlib {
     //% block='设置led灯引脚 $p 颜色 $color'
     //% group='led'
     //% color.shadow="colorNumberPicker"
-    export function initLedPins(p: Pins, color: number): void {
+    export function initLedPins(p: DgPins, color: number): void {
         if (color == 16711680) {
             _ledRedPin = p;
         } else if (color == 65280) {
