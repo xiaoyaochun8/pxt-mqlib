@@ -43,6 +43,7 @@ namespace mqlib {
      */
     //% block='270度：输入0～270 $v'
     //% group='servo'
+    //% weight=10
     //% v.min=0 v.max=270 v.defl=0
     export function arc270(v: number): number {
         return Math.map(v, 0, 270, 0, 180);
@@ -54,6 +55,7 @@ namespace mqlib {
      */
     //% block='270度：设置 $p 舵机角度 $v'
     //% group='servo'
+    //% weight=9
     //% v.min=0 v.max=270 v.defl=0
     export function setSteer270(p: AnPins, v: number): void {
         pins.servoWritePin(p, Math.map(v, 0, 270, 0, 180));
@@ -65,6 +67,7 @@ namespace mqlib {
      */
     //% block='100度：设置 $p 舵机角度 $v'
     //% group='servo'
+    //% weight=8
     //% v.min=0 v.max=100 v.defl=0
     export function setSteer100(p: AnPins, v: number): void {
         pins.servoWritePin(p, Math.map(v, 0, 270, 0, 100));
@@ -76,6 +79,7 @@ namespace mqlib {
      */
     //% block='设置led灯引脚 $p 颜色 $color'
     //% group='led'
+    //% weight=10
     //% color.shadow="colorNumberPicker"
     export function initLedPins(p: DgPins, color: number): void {
         if (color == 16711680) {
@@ -92,6 +96,7 @@ namespace mqlib {
      */
     //% block='控制led灯颜色 $color'
     //% group='led'
+    //% weight=9
     //% color.shadow="colorNumberPicker"
     export function setLedColor(color: number): void {
         pins.digitalWritePin(_ledRedPin, 0)
