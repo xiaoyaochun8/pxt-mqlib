@@ -74,13 +74,26 @@ namespace mqlib {
     }
 
     /**
+     * Get the color wheel field editor
+     * @param color color
+     */
+    //% blockId=colorNumberPicker2 block="%value"
+    //% blockHidden=true
+    //% value.fieldEditor="colornumber" value.fieldOptions.decompileLiterals=true
+    //% value.defl='0xff0000'
+    //% value.fieldOptions.colours='["#ff0000","#00ff00","#0000ff","#ffff00"]'
+    //% value.fieldOptions.columns=4
+    export function __colorNumberPicker2(value: number) {
+        return value;
+    }
+    /**
      * 设置led灯引脚和颜色
      * @param v describe
      */
     //% block='设置led灯引脚 $p 颜色 $color'
     //% group='led'
     //% weight=10
-    //% color.shadow="colorNumberPicker"
+    //% color.shadow="colorNumberPicker2"
     export function initLedPins(p: DgPins, color: number): void {
         if (color == 16711680) {
             _ledRedPin = p;
@@ -97,7 +110,7 @@ namespace mqlib {
     //% block='控制led灯颜色 $color'
     //% group='led'
     //% weight=9
-    //% color.shadow="colorNumberPicker"
+    //% color.shadow="colorNumberPicker2"
     export function setLedColor(color: number): void {
         pins.digitalWritePin(_ledRedPin, 0)
         pins.digitalWritePin(_ledGreenPin, 0)
