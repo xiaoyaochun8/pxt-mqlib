@@ -30,7 +30,7 @@ enum DgPins {
  * mqlib blocks
  */
 //% weight=100 color=#5c2d91 icon=""
-//% groups=['servo','led','others']
+//% groups=['Servo','Led','others']
 namespace mqlib {
 
     let _ledRedPin = 0;
@@ -42,7 +42,7 @@ namespace mqlib {
      * @param v describe
      */
     //% block='270度：输入0～270 $v'
-    //% group='servo'
+    //% group='Servo'
     //% weight=10
     //% v.min=0 v.max=270 v.defl=0
     export function arc270(v: number): number {
@@ -54,7 +54,7 @@ namespace mqlib {
      * @param v describe
      */
     //% block='270度：设置 $p 舵机角度 $v'
-    //% group='servo'
+    //% group='Servo'
     //% weight=9
     //% v.min=0 v.max=270 v.defl=0
     export function setSteer270(p: AnPins, v: number): void {
@@ -66,7 +66,7 @@ namespace mqlib {
      * @param v describe
      */
     //% block='100度：设置 $p 舵机角度 $v'
-    //% group='servo'
+    //% group='Servo'
     //% weight=8
     //% v.min=0 v.max=100 v.defl=0
     export function setSteer100(p: AnPins, v: number): void {
@@ -87,11 +87,11 @@ namespace mqlib {
         return value;
     }
     /**
-     * 设置led灯引脚和颜色
+     * 设置Led灯引脚和颜色
      * @param v describe
      */
-    //% block='设置led灯引脚 $p 颜色 $color'
-    //% group='led'
+    //% block='设置Led灯引脚 $p 颜色 $color'
+    //% group='Led'
     //% weight=10
     //% color.shadow="colorNumberPicker2"
     export function initLedPins(p: DgPins, color: number): void {
@@ -104,11 +104,11 @@ namespace mqlib {
         }
     }
     /**
-     * 设置led灯引脚和颜色
+     * 设置Led灯引脚和颜色
      * @param v describe
      */
-    //% block='控制led灯颜色 $color'
-    //% group='led'
+    //% block='控制Led灯颜色 $color'
+    //% group='Led'
     //% weight=9
     //% color.shadow="colorNumberPicker2"
     export function setLedColor(color: number): void {
