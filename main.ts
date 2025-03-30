@@ -16,7 +16,7 @@ enum Pins {
 /**
  * mqlib blocks
  */
-//% weight=100 color=#0fbc11 icon=""
+//% weight=100 color=#5c2d91 icon=""
 //% groups=['servo','others']
 namespace mqlib {
 
