@@ -82,8 +82,22 @@ namespace mqlib {
     //% weight=10
     //% v.min=0 v.max=10 v.defl=0
     export function setSteer180_10(p: AnPins, v: number): void {
-        pins.servoWritePin(p, Math.map(v, 0, 10, 45, 135));
+        pins.servoWritePin(p, Math.map(v, 0, 10, 35, 145));
     }
+
+    /**
+     * 设置270度舵机角度-10
+     * @param v describe
+     */
+    //% block='——!—— 180度模式：设置 $p 舵机角度 $v'
+    //% group='Servo180'
+    //% weight=9
+    //% v.shadow="protractorPicker"
+    export function setSteer180_180(p: AnPins, v: number): void {
+        pins.servoWritePin(p, Math.map(v, 0, 180, 35, 145));
+    }
+
+
 
     /**
      * Get the color wheel field editor
