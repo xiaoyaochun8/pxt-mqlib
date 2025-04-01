@@ -30,7 +30,7 @@ enum DgPins {
  * mqlib blocks
  */
 //% weight=100 color=#5c2d91 icon=""
-//% groups=['Servo','Led','others']
+//% groups=['Servo270','Servo180','Led','others']
 namespace mqlib {
 
     let _ledRedPin = 0;
@@ -41,8 +41,8 @@ namespace mqlib {
      * 输入270度转为180度
      * @param v describe
      */
-    //% block='270度：输入0～270 $v'
-    //% group='Servo'
+    //% block='270度模式：输入0～270 $v'
+    //% group='Servo270'
     //% weight=10
     //% v.min=0 v.max=270 v.defl=0
     export function arc270(v: number): number {
@@ -50,11 +50,11 @@ namespace mqlib {
     }
 
     /**
-     * 设置270度舵机角度
+     * 设置270度舵机角度-270
      * @param v describe
      */
-    //% block='270度：设置 $p 舵机角度 $v'
-    //% group='Servo'
+    //% block='270度模式：设置 $p 舵机角度 $v'
+    //% group='Servo270'
     //% weight=9
     //% v.min=0 v.max=270 v.defl=0
     export function setSteer270(p: AnPins, v: number): void {
@@ -62,15 +62,27 @@ namespace mqlib {
     }
 
     /**
-     * 设置270度舵机角度
+     * 设置270度舵机角度-10
      * @param v describe
      */
-    //% block='100度：设置 $p 舵机角度 $v'
-    //% group='Servo'
+    //% block='10度模式：设置 $p 舵机角度 $v'
+    //% group='Servo270'
     //% weight=8
-    //% v.min=0 v.max=100 v.defl=0
-    export function setSteer100(p: AnPins, v: number): void {
-        pins.servoWritePin(p, Math.map(v, 0, 270, 0, 100));
+    //% v.min=0 v.max=10 v.defl=0
+    export function setSteer270_10(p: AnPins, v: number): void {
+        pins.servoWritePin(p, Math.map(v, 0, 10, 0, 180));
+    }
+
+    /**
+     * 设置270度舵机角度-10
+     * @param v describe
+     */
+    //% block='10度模式：设置 $p 舵机角度 $v'
+    //% group='Servo180'
+    //% weight=10
+    //% v.min=0 v.max=10 v.defl=0
+    export function setSteer180_10(p: AnPins, v: number): void {
+        pins.servoWritePin(p, Math.map(v, 0, 10, 45, 135));
     }
 
     /**
