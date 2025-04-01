@@ -41,7 +41,7 @@ namespace mqlib {
      * 输入270度转为180度
      * @param v describe
      */
-    //% block='270度模式：输入0～270 $v'
+    //% block='/\\ 270度模式：输入0～270 $v'
     //% group='Servo270'
     //% weight=10
     //% v.min=0 v.max=270 v.defl=0
@@ -53,7 +53,7 @@ namespace mqlib {
      * 设置270度舵机角度-270
      * @param v describe
      */
-    //% block='270度模式：设置 $p 舵机角度 $v'
+    //% block='/\\ 270度模式：设置 $p 舵机角度 $v'
     //% group='Servo270'
     //% weight=9
     //% v.min=0 v.max=270 v.defl=0
@@ -65,7 +65,7 @@ namespace mqlib {
      * 设置270度舵机角度-10
      * @param v describe
      */
-    //% block='10度模式：设置 $p 舵机角度 $v'
+    //% block='/\\ 10度模式：设置 $p 舵机角度 $v'
     //% group='Servo270'
     //% weight=8
     //% v.min=0 v.max=10 v.defl=0
@@ -77,7 +77,7 @@ namespace mqlib {
      * 设置270度舵机角度-10
      * @param v describe
      */
-    //% block='10度模式：设置 $p 舵机角度 $v'
+    //% block='——!—— 10度模式：设置 $p 舵机角度 $v'
     //% group='Servo180'
     //% weight=10
     //% v.min=0 v.max=10 v.defl=0
