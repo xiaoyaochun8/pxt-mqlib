@@ -1,24 +1,20 @@
 
-> 在 [https://xiaoyaochun8.github.io/pxt-mqlib/](https://xiaoyaochun8.github.io/pxt-mqlib/) 打开此页面
+# mqlib
 
-## 用作扩展
+Extension for micorbit
 
-此仓库可以作为 **插件** 添加到 MakeCode 中。
+## Feature
 
-* 打开 [https://makecode.microbit.org/](https://makecode.microbit.org/)
-* 点击 **新项目**
-* 点击齿轮图标菜单下的 **扩展**
-* 搜索 **https://github.com/xiaoyaochun8/pxt-mqlib** 并导入
+- 270 steering engine
+- RGB Led Control
+- and more...
 
-## 编辑此项目
+## License
 
-在 MakeCode 中编辑此仓库。
+MIT
 
-* 打开 [https://makecode.microbit.org/](https://makecode.microbit.org/)
-* 点击 **导入**，然后点击 **导入 URL**
-* 粘贴 **https://github.com/xiaoyaochun8/pxt-mqlib** 并点击导入
-
-#### 元数据（用于搜索、渲染）
+## Supported targets
 
 * for PXT/microbit
+(The metadata above is needed for package search.)
 <script src="https://makecode.com/gh-pages-embed.js"></script><script>makeCodeRender("{{ site.makecode.home_url }}", "{{ site.github.owner_name }}/{{ site.github.repository_name }}");</script>
