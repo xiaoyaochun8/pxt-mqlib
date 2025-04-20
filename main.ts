@@ -36,6 +36,7 @@ namespace mqlib {
     let _ledRedPin = 0;
     let _ledGreenPin = 0;
     let _ledBluePin = 0; //blue and yellow
+    let _ledYellowPin = 0; //blue and yellow
 
     /**
      * 输入270度转为180度
@@ -81,7 +82,7 @@ namespace mqlib {
      * @param color color
      */
     //% subcategory="RgbLight"
-    //% blockId=colorNumberPickerRgb block="%value"
+    //% blockId=colorNumberPickerRgb block="rgb %value"
     //% blockHidden=true
     //% value.fieldEditor="colornumber" value.fieldOptions.decompileLiterals=true
     //% value.defl='0xff0000'
@@ -131,7 +132,7 @@ namespace mqlib {
      * @param color color
      */
     //% subcategory="RgyLight"
-    //% blockId=colorNumberPickerRgy block="%value"
+    //% blockId=colorNumberPickerRgy block="rgy %value"
     //% blockHidden=true
     //% value.fieldEditor="colornumber" value.fieldOptions.decompileLiterals=true
     //% value.defl='0xff0000'
