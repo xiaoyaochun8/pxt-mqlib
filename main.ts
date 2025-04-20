@@ -81,13 +81,13 @@ namespace mqlib {
      * @param color color
      */
     //% subcategory="RgbLight"
-    //% blockId=colorNumberPicker2 block="%value"
+    //% blockId=colorNumberPickerRgb block="%value"
     //% blockHidden=true
     //% value.fieldEditor="colornumber" value.fieldOptions.decompileLiterals=true
     //% value.defl='0xff0000'
     //% value.fieldOptions.colours='["#ff0000","#00ff00","#0000ff","#ffff00"]'
     //% value.fieldOptions.columns=4
-    export function __colorNumberPicker2(value: number) {
+    export function __colorNumberPickerRgb(value: number) {
         return value;
     }
     /**
@@ -95,11 +95,9 @@ namespace mqlib {
      * @param v describe
      */
     //% subcategory="RgbLight"
-    //% block='设置Led灯引脚 $p 颜色 $color'
-    //% group='Led'
-    //% weight=10
-    //% color.shadow="colorNumberPicker2"
-    export function initLedPins(p: DgPins, color: number): void {
+    //% block='设置RgbLed灯引脚 $p 颜色 $color'
+    //% color.shadow="colorNumberPickerRgb"
+    export function initLedPinsRgb(p: DgPins, color: number): void {
         if (color == 16711680) {
             _ledRedPin = p;
         } else if (color == 65280) {
@@ -113,11 +111,59 @@ namespace mqlib {
      * @param v describe
      */
     //% subcategory="RgbLight"
-    //% block='控制Led灯颜色 $color'
-    //% group='Led'
-    //% weight=9
-    //% color.shadow="colorNumberPicker2"
-    export function setLedColor(color: number): void {
+    //% block='控制RgbLed灯颜色 $color'
+    //% color.shadow="colorNumberPickerRgb"
+    export function setLedColorRgb(color: number): void {
+        pins.digitalWritePin(_ledRedPin, 0)
+        pins.digitalWritePin(_ledGreenPin, 0)
+        pins.digitalWritePin(_ledBluePin, 0)
+        if (color == 16711680) {
+            pins.digitalWritePin(_ledRedPin, 1)
+        } else if (color == 65280) {
+            pins.digitalWritePin(_ledGreenPin, 1)
+        } else if (color == 255 || color == 16776960) {
+            pins.digitalWritePin(_ledBluePin, 1)
+        }
+    }
+
+    /**
+     * Get the color wheel field editor
+     * @param color color
+     */
+    //% subcategory="RgyLight"
+    //% blockId=colorNumberPickerRgy block="%value"
+    //% blockHidden=true
+    //% value.fieldEditor="colornumber" value.fieldOptions.decompileLiterals=true
+    //% value.defl='0xff0000'
+    //% value.fieldOptions.colours='["#ff0000","#00ff00","#0000ff","#ffff00"]'
+    //% value.fieldOptions.columns=4
+    export function __colorNumberPickerRgy(value: number) {
+        return value;
+    }
+    /**
+     * 设置Led灯引脚和颜色
+     * @param v describe
+     */
+    //% subcategory="RgyLight"
+    //% block='设置RgyLed灯引脚 $p 颜色 $color'
+    //% color.shadow="colorNumberPickeRgy"
+    export function initLedPinsRgy(p: DgPins, color: number): void {
+        if (color == 16711680) {
+            _ledRedPin = p;
+        } else if (color == 65280) {
+            _ledGreenPin = p;
+        } else if (color == 32767 || color == 16776960) {
+            _ledBluePin = p;
+        }
+    }
+    /**
+     * 设置Led灯引脚和颜色
+     * @param v describe
+     */
+    //% subcategory="RgyLight"
+    //% block='控制RgyLed灯颜色 $color'
+    //% color.shadow="colorNumberPickerRgy"
+    export function setLedColorRgy(color: number): void {
         pins.digitalWritePin(_ledRedPin, 0)
         pins.digitalWritePin(_ledGreenPin, 0)
         pins.digitalWritePin(_ledBluePin, 0)
