@@ -77,7 +77,7 @@ namespace mqlib {
     }
 
     /**
-     * Get the color wheel field editor
+     * Get the color wheel field editor for rgb
      * @param color color
      */
     //% subcategory="RgbLight"
@@ -91,7 +91,7 @@ namespace mqlib {
         return value;
     }
     /**
-     * 设置Led灯引脚和颜色
+     * 设置RgbLed灯引脚和颜色
      * @param v describe
      */
     //% subcategory="RgbLight"
@@ -107,7 +107,7 @@ namespace mqlib {
         }
     }
     /**
-     * 设置Led灯引脚和颜色
+     * 设置RgbLed灯引脚和颜色
      * @param v describe
      */
     //% subcategory="RgbLight"
@@ -127,7 +127,7 @@ namespace mqlib {
     }
 
     /**
-     * Get the color wheel field editor
+     * Get the color wheel field editor for rgy
      * @param color color
      */
     //% subcategory="RgyLight"
@@ -141,7 +141,7 @@ namespace mqlib {
         return value;
     }
     /**
-     * 设置Led灯引脚和颜色
+     * 设置RgyLed灯引脚和颜色
      * @param v describe
      */
     //% subcategory="RgyLight"
@@ -157,7 +157,7 @@ namespace mqlib {
         }
     }
     /**
-     * 设置Led灯引脚和颜色
+     * 设置RgyLed灯引脚和颜色
      * @param v describe
      */
     //% subcategory="RgyLight"
