@@ -41,6 +41,7 @@ namespace mqlib {
      * 输入270度转为180度
      * @param v describe
      */
+    //% subcategory="Servo"
     //% block='/\\ 270度模式：输入0～270 $v'
     //% group='Servo270'
     //% weight=10
@@ -53,6 +54,7 @@ namespace mqlib {
      * 设置270度舵机角度-270
      * @param v describe
      */
+    //% subcategory="Servo"
     //% block='/\\ 270度模式：设置 $p 舵机角度 $v'
     //% group='Servo270'
     //% weight=9
@@ -65,6 +67,7 @@ namespace mqlib {
      * 设置270度舵机角度-10
      * @param v describe
      */
+    //% subcategory="Servo"
     //% block='——!—— 180度模式：设置 $p 舵机角度 $v'
     //% group='Servo180'
     //% weight=10
@@ -77,6 +80,7 @@ namespace mqlib {
      * Get the color wheel field editor
      * @param color color
      */
+    //% subcategory="RgbLight"
     //% blockId=colorNumberPicker2 block="%value"
     //% blockHidden=true
     //% value.fieldEditor="colornumber" value.fieldOptions.decompileLiterals=true
@@ -90,6 +94,7 @@ namespace mqlib {
      * 设置Led灯引脚和颜色
      * @param v describe
      */
+    //% subcategory="RgbLight"
     //% block='设置Led灯引脚 $p 颜色 $color'
     //% group='Led'
     //% weight=10
@@ -107,6 +112,7 @@ namespace mqlib {
      * 设置Led灯引脚和颜色
      * @param v describe
      */
+    //% subcategory="RgbLight"
     //% block='控制Led灯颜色 $color'
     //% group='Led'
     //% weight=9
