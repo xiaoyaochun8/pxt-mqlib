@@ -11,7 +11,8 @@
         "README.md",
         "main.blocks",
         "main.ts",
-        "tutorial-info-cache.json"
+        "tutorial-info-cache.json",
+        "mqMath.ts"
     ],
     "testFiles": [
         "test.ts"
