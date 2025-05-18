@@ -30,7 +30,7 @@ enum DgPins {
  * mqlib blocks
  */
 //% weight=100 color=#5c2d91 icon=""
-//% groups=['Servo270','Servo180','Led','others']
+//% groups=['舵机270','Servo180','Led','others']
 namespace mqlib {
 
     let _ledRedPin = 0;
@@ -42,7 +42,7 @@ namespace mqlib {
      * @param v describe
      */
     //% block='/\\ 270度模式：输入0～270 $v'
-    //% group='Servo270'
+    //% group='舵机270'
     //% weight=10
     //% v.min=0 v.max=270 v.defl=0
     export function arc270(v: number): number {
@@ -54,7 +54,7 @@ namespace mqlib {
      * @param v describe
      */
     //% block='/\\ 270度模式：设置 $p 舵机角度 $v'
-    //% group='Servo270'
+    //% group='舵机270'
     //% weight=9
     //% v.min=0 v.max=270 v.defl=0
     export function setSteer270(p: AnPins, v: number): void {
@@ -66,7 +66,7 @@ namespace mqlib {
      * @param v describe
      */
     //% block='——!—— 180度模式：设置 $p 舵机角度 $v'
-    //% group='Servo180'
+    //% group='舵机180'
     //% weight=10
     //% v.shadow="protractorPicker"
     export function setSteer180_180(p: AnPins, v: number): void {
@@ -131,7 +131,7 @@ namespace mqlib {
      * Create a 128x64 pixel matrix for use as a custom character.
      */
     //% subcategory="oled"
-    //% block="character128x64"
+    //% block="oled点阵128x64"
     //% imageLiteral=1
     //% imageLiteralColumns=64
     //% imageLiteralRows=32
@@ -145,7 +145,7 @@ namespace mqlib {
      * Create a 128x64 pixel matrix for use as a custom character.
      */
     //% subcategory="oled"
-    //% block
+    //% block="oled画图 $im"
     export function oledDrawImgWithPixels(im: Image): void {
         OLED12864_I2C.init(60)
         for (let y = 0; y < 32; y++) {
