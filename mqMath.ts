@@ -12,7 +12,7 @@ namespace mqlib {
     let _b = 0;
     let _symbol = '';
 
-    //% subcategory="mqMath"
+    //% subcategory="数学"
     //% block="我的计算结果是？$v"
     export function checkRet(v: number) {
         if (_symbol == 'p' && v == _a + _b) {
@@ -26,23 +26,23 @@ namespace mqlib {
             music.play(music.builtinPlayableSoundEffect(soundExpression.sad), music.PlaybackMode.UntilDone);
         }
     }
-    //% subcategory="mqMath"
+    //% subcategory="数学"
     //% block="a - b = ?"
     export function setA_Sub_B() {
         _symbol = 's';
     }
-    //% subcategory="mqMath"
+    //% subcategory="数学"
     //% block="a + b = ?"
     export function setA_Plus_B() {
         _symbol = 'p';
     }
-    //% subcategory="mqMath"
+    //% subcategory="数学"
     //% block="b = $v"
     //% v.defl=2
     export function setB(v: number) {
         _b = v;
     }
-    //% subcategory="mqMath"
+    //% subcategory="数学"
     //% block="a = $v"
     //% v.defl=1
     export function setA(v: number) {

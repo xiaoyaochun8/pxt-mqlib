@@ -77,7 +77,7 @@ namespace mqlib {
      * Get the color wheel field editor
      * @param color color
      */
-    //% subcategory="rgby"
+    //% subcategory="红绿蓝黄灯"
     //% blockId=colorNumberPicker2 block="%value"
     //% blockHidden=true
     //% value.fieldEditor="colornumber" value.fieldOptions.decompileLiterals=true
@@ -91,7 +91,7 @@ namespace mqlib {
      * 设置Led灯引脚和颜色
      * @param v describe
      */
-    //% subcategory="rgby"
+    //% subcategory="红绿蓝黄灯"
     //% block='设置Led灯引脚 $p 颜色 $color'
     //% group='Led'
     //% weight=10
@@ -109,7 +109,7 @@ namespace mqlib {
      * 设置Led灯引脚和颜色
      * @param v describe
      */
-    //% subcategory="rgby"
+    //% subcategory="红绿蓝黄灯"
     //% block='控制Led灯颜色 $color'
     //% group='Led'
     //% weight=9
