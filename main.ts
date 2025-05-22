@@ -145,8 +145,8 @@ namespace mqlib {
      * Create a 128x64 pixel matrix for use as a custom character.
      */
     //% subcategory="oled"
-    //% block="oled画图 $im"
-    export function oledDrawImgWithPixels(im: Image): void {
+    //% block="oled画图128x64 $im"
+    export function oledDrawImgWithPixels12864(im: Image): void {
         OLED12864_I2C.init(60)
         for (let y = 0; y < 32; y++) {
             for (let x = 0; x < 64; x++) {
@@ -155,5 +155,19 @@ namespace mqlib {
                 }
             }
         }
+    }
+
+    /**
+     * Create a 13x13 pixel matrix for use as a custom character.
+     */
+    //% subcategory="oled"
+    //% block="oled点阵13x13"
+    //% imageLiteral=1
+    //% imageLiteralColumns=13
+    //% imageLiteralRows=13
+    //% imageLiteralScale=1
+    //% shim=images::createImage
+    export function oledCharacterPixels1313(i: string): Image {
+        return <Image><any>i;
     }
 }
