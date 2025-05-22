@@ -240,5 +240,4 @@ namespace mqlib {
         return <Image><any>i;
     }
 
-    
 }
