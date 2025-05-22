@@ -13,7 +13,8 @@
         "main.blocks",
         "main.ts",
         "tutorial-info-cache.json",
-        "mqMath.ts"
+        "mqMath.ts",
+        "mqOled.ts"
     ],
     "testFiles": [
         "test.ts"
