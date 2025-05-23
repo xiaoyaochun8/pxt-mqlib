@@ -8,12 +8,12 @@ enum OledFace {
     Happy,
     //% block="伤心"
     Sad,
+    //% block="睡觉"
+    Sleep,
     //% block="生气"
     Angry,
     //% block="惊讶"
     Amazed,
-    //% block="睡觉"
-    Sleep,
 }
 
 /**
