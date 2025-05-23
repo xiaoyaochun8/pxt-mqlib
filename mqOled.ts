@@ -181,6 +181,21 @@ namespace mqlib {
     }
 
     /**
+     * Create a 13x13 pixel matrix for use as a custom character.
+     */
+    //% subcategory="oled"
+    //% group='oled-画图'
+    //% block="oled点阵13x13"
+    //% imageLiteral=1
+    //% imageLiteralColumns=13
+    //% imageLiteralRows=13
+    //% imageLiteralScale=1
+    //% shim=images::createImage
+    export function oledCharacterPixels1313(i: string): Image {
+        return <Image><any>i;
+    }
+
+    /**
      * Create a 128x64 pixel matrix for use as a custom character.
      */
     //% subcategory="oled"
@@ -195,20 +210,5 @@ namespace mqlib {
                 }
             }
         }
-    }
-
-    /**
-     * Create a 13x13 pixel matrix for use as a custom character.
-     */
-    //% subcategory="oled"
-    //% group='oled-画图'
-    //% block="oled点阵13x13"
-    //% imageLiteral=1
-    //% imageLiteralColumns=13
-    //% imageLiteralRows=13
-    //% imageLiteralScale=1
-    //% shim=images::createImage
-    export function oledCharacterPixels1313(i: string): Image {
-        return <Image><any>i;
     }
 }
