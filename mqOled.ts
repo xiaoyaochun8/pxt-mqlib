@@ -521,25 +521,11 @@ namespace mqlib {
     //% group='oled-画图'
     //% block="oled点阵128x64"
     //% imageLiteral=1
-    //% imageLiteralColumns=64
-    //% imageLiteralRows=32
+    //% imageLiteralColumns=128
+    //% imageLiteralRows=64
     //% imageLiteralScale=1
     //% shim=images::createImage
     export function oledCharacterPixels12864(i: string): Image {
-        return <Image><any>i;
-    }
-    /**
-     * Create a 19x19 pixel matrix for use as a custom character.
-     */
-    //% subcategory="oled"
-    //% group='oled-画图'
-    //% block="oled点阵19x19"
-    //% imageLiteral=1
-    //% imageLiteralColumns=19
-    //% imageLiteralRows=19
-    //% imageLiteralScale=1
-    //% shim=images::createImage
-    export function oledCharacterPixels1919(i: string): Image {
         return <Image><any>i;
     }
     /**
@@ -549,8 +535,8 @@ namespace mqlib {
     //% group='oled-画图'
     //% block="oled画图128x64 $im"
     export function oledDrawImgWithPixels12864(im: Image): void {
-        for (let y = 0; y < 32; y++) {
-            for (let x = 0; x < 64; x++) {
+        for (let y = 0; y < 64; y++) {
+            for (let x = 0; x < 128; x++) {
                 if (im.pixel(x, y)) {
                     OLED12864_I2C.pixel(x, y, 1)
                 }
@@ -578,10 +564,10 @@ namespace mqlib {
     //% group='oled-画图'
     //% block="oled画图13x13 $im"
     export function oledDrawImgWithPixels1313(im: Image): void {
-        for (let y = 0; y < 32; y++) {
-            for (let x = 0; x < 64; x++) {
+        for (let y = 0; y < 13; y++) {
+            for (let x = 0; x < 13; x++) {
                 if (im.pixel(x, y)) {
-                    OLED12864_I2C.pixel(x+26, y+10, 1)
+                    OLED12864_I2C.pixel(x+58, y+26, 1)
                 }
             }
         }
