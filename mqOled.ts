@@ -51,9 +51,9 @@ namespace mqlib {
     //% iSize.min=1 iSize.max=3 iSize.defl=1
     export function oledDrawSquare(iSize: Number): void {
         if (iSize == 3) {
-            OLED12864_I2C.rect(0, 0, 30, 30, 1);
+            OLED12864_I2C.rect(0, 0, 63, 63, 1);
         } else if (iSize == 2) {
-            OLED12864_I2C.rect(0, 0, 20, 20, 1);
+            OLED12864_I2C.rect(0, 0, 30, 30, 1);
         } else {
             OLED12864_I2C.rect(0, 0, 10, 10, 1);
         }
@@ -64,9 +64,9 @@ namespace mqlib {
     //% iSize.min=1 iSize.max=3 iSize.defl=1
     export function oledDrawRectangle(iSize: Number): void {
         if (iSize == 3) {
-            OLED12864_I2C.rect(0, 0, 60, 30, 1);
+            OLED12864_I2C.rect(0, 0, 127, 63, 1);
         } else if (iSize == 2) {
-            OLED12864_I2C.rect(0, 0, 40, 20, 1);
+            OLED12864_I2C.rect(0, 0, 60, 30, 1);
         } else {
             OLED12864_I2C.rect(0, 0, 20, 10, 1);
         }
