@@ -530,7 +530,20 @@ namespace mqlib {
     export function oledCharacterPixels12864(i: string): Image {
         return <Image><any>i;
     }
-
+    /**
+     * Create a 19x19 pixel matrix for use as a custom character.
+     */
+    //% subcategory="oled"
+    //% group='oled-画图'
+    //% block="oled点阵19x19"
+    //% imageLiteral=1
+    //% imageLiteralColumns=19
+    //% imageLiteralRows=19
+    //% imageLiteralScale=1
+    //% shim=images::createImage
+    export function oledCharacterPixels1919(i: string): Image {
+        return <Image><any>i;
+    }
     /**
      * Create a 13x13 pixel matrix for use as a custom character.
      */
