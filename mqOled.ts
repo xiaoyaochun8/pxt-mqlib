@@ -50,7 +50,6 @@ namespace mqlib {
     //% block="oled画正方形 $iSize"
     //% iSize.min=1 iSize.max=3 iSize.defl=1
     export function oledDrawSquare(iSize: Number): void {
-        OLED12864_I2C.init(60);
         if (iSize == 3) {
             OLED12864_I2C.rect(0, 0, 30, 30, 1);
         } else if (iSize == 2) {
@@ -64,7 +63,6 @@ namespace mqlib {
     //% block="oled画长方形 $iSize"
     //% iSize.min=1 iSize.max=3 iSize.defl=1
     export function oledDrawRectangle(iSize: Number): void {
-        OLED12864_I2C.init(60);
         if (iSize == 3) {
             OLED12864_I2C.rect(0, 0, 60, 30, 1);
         } else if (iSize == 2) {
@@ -551,7 +549,6 @@ namespace mqlib {
     //% group='oled-画图'
     //% block="oled画图128x64 $im"
     export function oledDrawImgWithPixels12864(im: Image): void {
-        OLED12864_I2C.init(60)
         for (let y = 0; y < 32; y++) {
             for (let x = 0; x < 64; x++) {
                 if (im.pixel(x, y)) {
@@ -581,7 +578,6 @@ namespace mqlib {
     //% group='oled-画图'
     //% block="oled画图13x13 $im"
     export function oledDrawImgWithPixels1313(im: Image): void {
-        OLED12864_I2C.init(60)
         for (let y = 0; y < 32; y++) {
             for (let x = 0; x < 64; x++) {
                 if (im.pixel(x, y)) {
