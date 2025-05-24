@@ -15,11 +15,21 @@ enum OledFace {
     //% block="惊讶"
     Amazed,
 }
+enum OledChWord {
+    //% block="大"
+    Da,
+    //% block="中"
+    Zhong,
+    //% block="小"
+    Xiao,
+    //% block="奇"
+    Qi,
+}
 
 /**
  * mqOled blocks
  */
-//% groups=['oled-形状','oled-表情','oled-画图']
+//% groups=['oled-形状','oled-表情','oled-中文','oled-画图']
 namespace mqlib {
     //% subcategory="oled"
     //% group='oled-形状'
@@ -47,6 +57,76 @@ namespace mqlib {
             OLED12864_I2C.rect(0, 0, 40, 20, 1);
         } else {
             OLED12864_I2C.rect(0, 0, 20, 10, 1);
+        }
+    }
+    //% subcategory="oled"
+    //% group='oled-中文'
+    //% block="oled画中文 $oledChWord"
+    export function oledDrawChWord(oledDrawChWord: OledChWord): void {
+        if (oledDrawChWord == OledChWord.Da) {
+            mqlib.oledDrawImgWithPixels12864(mqlib.oledCharacterPixels12864(`
+    . . . . . . # . . . . . .
+    . . . . . . # . . . . . .
+    . . . . . . # . . . . . .
+    . . # # # # # # # # # . .
+    . . . . . . # . . . . . .
+    . . . . . . # . . . . . .
+    . . . . . . # . . . . . .
+    . . . . . # . # . . . . .
+    . . . . # . . . # . . . .
+    . . . # . . . . . # . . .
+    . . # . . . . . . . # . .
+    . . . . . . . . . . . . .
+    . . . . . . . . . . . . .
+    `))
+        } else if (oledDrawChWord == OledChWord.Zhong) {
+            mqlib.oledDrawImgWithPixels12864(mqlib.oledCharacterPixels12864(`
+    . . . . . . # . . . . . .
+    . . . . . . # . . . . . .
+    . . . . . . # . . . . . .
+    . . # # # # # # # # # . .
+    . . # . . . # . . . # . .
+    . . # . . . # . . . # . .
+    . . # # # # # # # # # . .
+    . . . . . . # . . . . . .
+    . . . . . . # . . . . . .
+    . . . . . . # . . . . . .
+    . . . . . . # . . . . . .
+    . . . . . . # . . . . . .
+    . . . . . . . . . . . . .
+    `))
+        } else if (oledDrawChWord == OledChWord.Xiao) {
+            mqlib.oledDrawImgWithPixels12864(mqlib.oledCharacterPixels12864(`
+    . . . . . . # . . . . . .
+    . . . . . . # . . . . . .
+    . . . . . . # . . . . . .
+    . . . . . . # . . . . . .
+    . . . . . . # . . . . . .
+    . . . # . . # . . # . . .
+    . . # . . . # . . . # . .
+    . # . . . . # . . . . # .
+    # . . . . . # . . . . . #
+    . . . . . . # . . . . . .
+    . . . # . . # . . . . . .
+    . . . . # . # . . . . . .
+    . . . . . # # . . . . . .
+    `))
+        } else if (oledDrawChWord == OledChWord.Qi) {
+            mqlib.oledDrawImgWithPixels12864(mqlib.oledCharacterPixels12864(`
+    . . . . . # . . . . . . .
+    . . . # # # # # # . . . .
+    . . . . . # . . . . . . .
+    . . . . # . # . . . . . .
+    . . . # . . . # . . . . .
+    . . . . . . . . . . . . .
+    . # # # # # # # # # # # .
+    . . . . . . . # . . . . .
+    . . # # # . . # . . . . .
+    . . # . # . . # . . . . .
+    . . # # # . . # . . . . .
+    . . . . . . . # . . . . .
+    . . . . . # # # . . . . .
+    `))
         }
     }
     //% subcategory="oled"
