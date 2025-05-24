@@ -76,8 +76,8 @@ namespace mqlib {
     //% subcategory="oled"
     //% group='oled-中文'
     //% block="oled画中文 $oledChWord"
-    export function oledDrawChWord(oledDrawChWord: OledChWord): void {
-        if (oledDrawChWord == OledChWord.Da) {
+    export function oledDrawChWord(oledChWord: OledChWord): void {
+        if (oledChWord == OledChWord.Da) {
             mqlib.oledDrawImgWithPixels12864(mqlib.oledCharacterPixels12864(`
     . . . . . . # . . . . . .
     . . . . . . # . . . . . .
@@ -93,7 +93,7 @@ namespace mqlib {
     . . . . . . . . . . . . .
     . . . . . . . . . . . . .
     `))
-        } else if (oledDrawChWord == OledChWord.Zhong) {
+        } else if (oledChWord == OledChWord.Zhong) {
             mqlib.oledDrawImgWithPixels12864(mqlib.oledCharacterPixels12864(`
     . . . . . . # . . . . . .
     . . . . . . # . . . . . .
@@ -109,7 +109,7 @@ namespace mqlib {
     . . . . . . # . . . . . .
     . . . . . . . . . . . . .
     `))
-        } else if (oledDrawChWord == OledChWord.Xiao) {
+        } else if (oledChWord == OledChWord.Xiao) {
             mqlib.oledDrawImgWithPixels12864(mqlib.oledCharacterPixels12864(`
     . . . . . . # . . . . . .
     . . . . . . # . . . . . .
@@ -125,7 +125,7 @@ namespace mqlib {
     . . . . # . # . . . . . .
     . . . . . # # . . . . . .
     `))
-        } else if (oledDrawChWord == OledChWord.Qi) {
+        } else if (oledChWord == OledChWord.Qi) {
             mqlib.oledDrawImgWithPixels12864(mqlib.oledCharacterPixels12864(`
     . . . . . # . . . . . . .
     . . . # # # # # # . . . .
