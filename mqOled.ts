@@ -43,7 +43,7 @@ enum OledPic {
 /**
  * mqOled blocks
  */
-//% groups=['oled-形状','oled-中文','oled-表情','oled-人物','oled-画图']
+//% groups=['oled-形状','oled-中文','oled-表情','oled-人物','oled-动画','oled-画图']
 namespace mqlib {
     //% subcategory="oled"
     //% group='oled-形状'
@@ -512,6 +512,21 @@ namespace mqlib {
     . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
     `))
         }
+    }
+    //% subcategory="oled"
+    //% group='oled-动画'
+    //% block="oled动画"
+    export function oledDrawAnim(): void {
+        let x = 0
+        basic.forever(function () {
+            if (x < 128) {
+                OLED12864_I2C.pixel(x, 0, 1)
+                x += 1
+            } else {
+                OLED12864_I2C.clear()
+                x = 0
+            }
+        })
     }
 
     /**
