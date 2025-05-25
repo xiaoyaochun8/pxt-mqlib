@@ -561,9 +561,7 @@ namespace mqlib {
             }
         })
     }
-    //% subcategory="oled"
-    //% group='oled-动画'
-    //% block="oled雪人动画4"
+
     export function oledDrawAnim4SnowMan(): void {
         mqlib.oledDrawImgWithPixels12864(mqlib.oledCharacterPixels12864(`
     . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
@@ -632,6 +630,9 @@ namespace mqlib {
     . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
     `))
     }
+    //% subcategory="oled"
+    //% group='oled-动画'
+    //% block="oled雪人动画4"
     export function oledDrawAnim4(): void {
         oledDrawAnim4SnowMan();
         let x = 0;
