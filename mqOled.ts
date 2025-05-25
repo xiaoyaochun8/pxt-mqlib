@@ -45,6 +45,26 @@ enum OledPic {
  */
 //% groups=['oled-形状','oled-中文','oled-表情','oled-人物','oled-动画','oled-画图']
 namespace mqlib {
+
+    let imOledChWord_Da = mqlib.oledCharacterPixels12864(`
+    . . . . . . # . . . . . .
+    . . . . . . # . . . . . .
+    . . . . . . # . . . . . .
+    . . # # # # # # # # # . .
+    . . . . . . # . . . . . .
+    . . . . . . # . . . . . .
+    . . . . . . # . . . . . .
+    . . . . . # . # . . . . .
+    . . . . # . . . # . . . .
+    . . . # . . . . . # . . .
+    . . # . . . . . . . # . .
+    . . . . . . . . . . . . .
+    . . . . . . . . . . . . .
+    `)
+
+
+
+
     //% subcategory="oled"
     //% group='oled-形状'
     //% block="oled画正方形 $iSize"
@@ -76,21 +96,7 @@ namespace mqlib {
     //% block="oled画中文 $oledChWord"
     export function oledDrawChWord(oledChWord: OledChWord): void {
         if (oledChWord == OledChWord.Da) {
-            mqlib.oledDrawImgWithPixels12864(mqlib.oledCharacterPixels12864(`
-    . . . . . . # . . . . . .
-    . . . . . . # . . . . . .
-    . . . . . . # . . . . . .
-    . . # # # # # # # # # . .
-    . . . . . . # . . . . . .
-    . . . . . . # . . . . . .
-    . . . . . . # . . . . . .
-    . . . . . # . # . . . . .
-    . . . . # . . . # . . . .
-    . . . # . . . . . # . . .
-    . . # . . . . . . . # . .
-    . . . . . . . . . . . . .
-    . . . . . . . . . . . . .
-    `))
+            mqlib.oledDrawImgWithPixels12864(imOledChWord_Da)
         } else if (oledChWord == OledChWord.Zhong) {
             mqlib.oledDrawImgWithPixels12864(mqlib.oledCharacterPixels12864(`
     . . . . . . # . . . . . .
