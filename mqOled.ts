@@ -543,6 +543,24 @@ namespace mqlib {
             }
         })
     }
+    //% subcategory="oled"
+    //% group='oled-动画'
+    //% block="oled动画3"
+    export function oledDrawAnim3(): void {
+        let x = 0;
+        let y = 0;
+        let cnt = 0;
+        basic.forever(function () {
+            x = Math.floor(Math.random() * 127);
+            y = Math.floor(Math.random() * 63);
+            OLED12864_I2C.pixel(x, y, 1);
+            cnt ++;
+            if(cnt > 128*64*10){
+                OLED12864_I2C.clear();
+                cnt = 0;
+            }
+        })
+    }
 
     /**
      * Create a 128x64 pixel matrix for use as a custom character.
