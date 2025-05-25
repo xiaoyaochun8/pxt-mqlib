@@ -515,7 +515,7 @@ namespace mqlib {
     }
     //% subcategory="oled"
     //% group='oled-动画'
-    //% block="oled动画"
+    //% block="oled直线动画1"
     export function oledDrawAnim(): void {
         let x = 0
         basic.forever(function () {
@@ -530,7 +530,7 @@ namespace mqlib {
     }
     //% subcategory="oled"
     //% group='oled-动画'
-    //% block="oled动画2"
+    //% block="oled长方形动画2"
     export function oledDrawAnim2(): void {
         let x = 4
         basic.forever(function () {
@@ -545,7 +545,7 @@ namespace mqlib {
     }
     //% subcategory="oled"
     //% group='oled-动画'
-    //% block="oled动画3"
+    //% block="oled下雪动画3"
     export function oledDrawAnim3(): void {
         let x = 0;
         let y = 0;
@@ -555,9 +555,27 @@ namespace mqlib {
             y = Math.floor(Math.random() * 63);
             OLED12864_I2C.pixel(x, y, 1);
             cnt ++;
-            if(cnt > 128*64){
+            if(cnt > 128*10){
                 OLED12864_I2C.clear();
                 cnt = 0;
+            }
+        })
+    }
+    //% subcategory="oled"
+    //% group='oled-动画'
+    //% block="oled雪人动画4"
+    export function oledDrawAnim4(): void {
+        let x = 0;
+        let y = 0;
+        let cnt = 0;
+        basic.forever(function () {
+            x = Math.floor(Math.random() * 127);
+            y = Math.floor(Math.random() * 23) + 40;
+            OLED12864_I2C.pixel(x, y, 1);
+            cnt++;
+            if (cnt > 128 * 10) {
+                OLED12864_I2C.clear();
+                cnt = 40;
             }
         })
     }
