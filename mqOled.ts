@@ -76,21 +76,7 @@ namespace mqlib {
     //% block="oled画中文 $oledChWord"
     export function oledDrawChWord(oledChWord: OledChWord): void {
         if (oledChWord == OledChWord.Da) {
-            mqlib.oledDrawImgWithPixels12864(mqlib.oledCharacterPixels12864(`
-    . . . . . . # . . . . . .
-    . . . . . . # . . . . . .
-    . . . . . . # . . . . . .
-    . . # # # # # # # # # . .
-    . . . . . . # . . . . . .
-    . . . . . . # . . . . . .
-    . . . . . . # . . . . . .
-    . . . . . # . # . . . . .
-    . . . . # . . . # . . . .
-    . . . # . . . . . # . . .
-    . . # . . . . . . . # . .
-    . . . . . . . . . . . . .
-    . . . . . . . . . . . . .
-    `))
+            mqlib.oledDrawImgWithPixels12864(mqlib.oledCharacterPixels12864(mqlib.getOledChWordDa()))
         } else if (oledChWord == OledChWord.Zhong) {
             mqlib.oledDrawImgWithPixels12864(mqlib.oledCharacterPixels12864(`
     . . . . . . # . . . . . .
