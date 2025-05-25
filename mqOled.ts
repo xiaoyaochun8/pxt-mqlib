@@ -555,7 +555,7 @@ namespace mqlib {
             y = Math.floor(Math.random() * 63);
             OLED12864_I2C.pixel(x, y, 1);
             cnt ++;
-            if(cnt > 128*64*10){
+            if(cnt > 128*64*3){
                 OLED12864_I2C.clear();
                 cnt = 0;
             }
