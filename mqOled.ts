@@ -43,7 +43,7 @@ enum OledPic {
 /**
  * mqOled blocks
  */
-//% groups=['oled-形状','oled-空白','oled-中文','oled-表情','oled-人物','oled-动画','oled-画图']
+//% groups=['oled-形状','oled-橡皮檫','oled-中文','oled-表情','oled-人物','oled-动画','oled-画图']
 namespace mqlib {
 
     let imOledChWord_Da = mqlib.oledCharacterPixels12864(`
@@ -541,10 +541,14 @@ namespace mqlib {
         }
     }
     //% subcategory="oled"
-    //% group='oled-空白'
-    //% block="oled画长方形空白区域 x$x y$y 宽度$iWidth 高度$iHeight"
-    export function oledDrawRectAreaClean(x: number, y: number, iWidth: number, iHeight: number): void {
-        OLED12864_I2C.rect(x, y, iWidth, iHeight, 0);
+    //% group='oled-橡皮檫'
+    //% block="oled矩形区域橡皮檫 x$xTmp y$yTmp 宽度$iWidth 高度$iHeight"
+    export function oledDrawRectAreaClean(xTmp: number, yTmp: number, iWidth: number, iHeight: number): void {
+        for (let y = yTmp; y < yTmp+iHeight; y++) {
+            for (let x = xTmp; x < xTmp+iWidth; x++) {
+                OLED12864_I2C.pixel(x, y, 0);
+            }
+        }
     }
     //% subcategory="oled"
     //% group='oled-中文'
