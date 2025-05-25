@@ -43,7 +43,7 @@ enum OledPic {
 /**
  * mqOled blocks
  */
-//% groups=['oled-形状','oled-中文','oled-表情','oled-人物','oled-动画','oled-画图']
+//% groups=['oled-形状','oled-空白','oled-中文','oled-表情','oled-人物','oled-动画','oled-画图']
 namespace mqlib {
 
     let imOledChWord_Da = mqlib.oledCharacterPixels12864(`
@@ -518,7 +518,7 @@ namespace mqlib {
     //% group='oled-形状'
     //% block="oled画正方形 $iSize"
     //% iSize.min=1 iSize.max=3 iSize.defl=1
-    export function oledDrawSquare(iSize: Number): void {
+    export function oledDrawSquare(iSize: number): void {
         if (iSize == 3) {
             OLED12864_I2C.rect(0, 0, 63, 63, 1);
         } else if (iSize == 2) {
@@ -531,7 +531,7 @@ namespace mqlib {
     //% group='oled-形状'
     //% block="oled画长方形 $iSize"
     //% iSize.min=1 iSize.max=3 iSize.defl=1
-    export function oledDrawRectangle(iSize: Number): void {
+    export function oledDrawRectangle(iSize: number): void {
         if (iSize == 3) {
             OLED12864_I2C.rect(0, 0, 127, 63, 1);
         } else if (iSize == 2) {
@@ -539,6 +539,12 @@ namespace mqlib {
         } else {
             OLED12864_I2C.rect(0, 0, 20, 10, 1);
         }
+    }
+    //% subcategory="oled"
+    //% group='oled-空白'
+    //% block="oled画长方形空白区域 x$x y$y 宽度$iWidth 高度$iHeight"
+    export function oledDrawRectAreaClean(x: number, y: number, iWidth: number, iHeight: number): void {
+        OLED12864_I2C.rect(x, y, iWidth, iHeight, 0);
     }
     //% subcategory="oled"
     //% group='oled-中文'
