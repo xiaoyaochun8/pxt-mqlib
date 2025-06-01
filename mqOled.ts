@@ -45,6 +45,7 @@ enum OledPic {
  */
 //% groups=['oled-形状','oled-橡皮檫','oled-中文','oled-表情','oled-人物','oled-动画','oled-画图']
 namespace mqlib {
+    let aa = mqlib.imOledChWord_Das;
 
     let imOledChWord_Da = mqlib.oledCharacterPixels12864(`
     . . . . . . # . . . . . .
