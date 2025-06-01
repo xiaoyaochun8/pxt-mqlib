@@ -713,6 +713,25 @@ namespace mqlib {
                 }
             }
         }
+        //todo-drawBmp
+        // let buf = pins.createBuffer(1025);
+        // let address = 60;
+        // let repeat = false;
+        // for (let y = 0; y < 64; y++) {
+        //     for (let x = 0; x < 128; x++) {
+        //         if (im.pixel(x, y)) {
+        //             buf[x] = 1;
+        //         }
+        //     }
+        // }
+        // for (let y = 0; y < 8; y++) {
+        //     for (let x = 0; x < 128; x++) {
+        //         if (im.pixel(x, y)) {
+        //             buf[x] = 1;
+        //         }
+        //     }
+        // }
+        // pins.i2cWriteBuffer(address, buf, repeat);
     }
     /**
      * Create a 13x13 pixel matrix for use as a custom character.
