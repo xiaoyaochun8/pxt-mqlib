@@ -952,6 +952,18 @@ namespace mqlib {
         //     }
         // }
         // pins.i2cWriteBuffer(address, buf, repeat);
+        // let _screen = pins.createBuffer(1025);
+        // _screen[0] = 0x40
+        // _screen[1] = 0xff
+        // _screen[2] = 0x01
+        // _screen[3] = 0x02
+        // _screen[4] = 0x04
+        // _screen[5] = 0x08
+        // _screen[6] = 0x10
+        // _screen[7] = 0x20
+        // _screen[8] = 0x40
+        // _screen[9] = 0x80
+        // pins.i2cWriteBuffer(60, _screen)
     }
     /**
      * Create a 13x13 pixel matrix for use as a custom character.
