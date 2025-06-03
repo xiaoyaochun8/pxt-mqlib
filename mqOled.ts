@@ -50,12 +50,73 @@ enum OledAnimal {
     b,
 }
 
+enum OledPic2 {
+    //% block="表情-开心"
+    Happy,
+    //% block="表情-伤心"
+    Sad,
+    //% block="表情-睡觉"
+    Sleep,
+    //% block="表情-生气"
+    Angry,
+    //% block="表情-惊讶"
+    Amazed,
+    //% block="人物-小人"
+    P1,
+    //% block="人物-火柴人"
+    P2,
+    //% block="人物-机器人"
+    P3,
+    //% block="人物-海底小纵队队长"
+    P4,
+    //% block="人物-汪汪队天天"
+    P5,
+    //% block="动物-小仓鼠"
+    a,
+    //% block="动物-b"
+    b,
+    //% block="文字-大"
+    Da,
+    //% block="文字-中"
+    Zhong,
+    //% block="文字-小"
+    Xiao,
+    //% block="文字-奇"
+    Qi,
+    //% block="风景-山峰"
+    Pic1,
+    //% block="风景-河流"
+    Pic2,
+}
+
 /**
  * mqOled blocks
  */
 //% groups=['oled-形状','oled-橡皮檫','oled-中文','oled-表情','oled-人物','oled-动画','oled-画图']
 namespace mqlib {
     
+    //% subcategory="oled"
+    //% group='oled-图片2'
+    //% block="oled画图片MM $oledPic"
+    export function oledDrawPicByMM(oledPic: OledPic2): void {
+        if (oledPic == OledPic2.P4) {
+            mqlib.oledDrawPicBy1024Hex(imOledPerson_P42)
+        } else if (oledPic == OledPic2.P5) {
+            mqlib.oledDrawPicBy1024Hex(imOledPerson_P52)
+        }
+    }
+    //% subcategory="oled"
+    //% group='oled-人物2'
+    //% block="oled画人物2"
+    export function oledDrawPicBy1024Hex(im: number[]): void {
+        let _screen = pins.createBuffer(1025);
+        _screen[0] = 0x40
+        for (let i = 0; i < 1024; i++) {
+            _screen[i + 1] = im[i]
+        }
+        pins.i2cWriteBuffer(60, _screen)
+    }
+
     //% subcategory="oled"
     //% group='oled-形状'
     //% block="oled画正方形 $iSize"
@@ -140,17 +201,6 @@ namespace mqlib {
         } else if (oledPerson == OledPerson.P5) {
             mqlib.oledDrawImgWithPixels12864(imOledPerson_P5)
         }
-    }
-    //% subcategory="oled"
-    //% group='oled-人物2'
-    //% block="oled画人物2"
-    export function oledDrawPerson2(): void {
-        let _screen = pins.createBuffer(1025);
-        _screen[0] = 0x40
-        for(let i=0;i<1024;i++){
-            _screen[i + 1] = imOledPerson_P42[i]
-        }
-        pins.i2cWriteBuffer(60, _screen)
     }
     //% subcategory="oled"
     //% group='oled-风景'
