@@ -96,8 +96,7 @@ enum OledPic2 {
 namespace mqlib {
     
     //% subcategory="oled"
-    //% group='oled-图片2'
-    //% block="oled画图片MM $oledPic"
+    //% group='oled-画图pic'
     export function oledDrawPicByMM(oledPic: OledPic2): void {
         if (oledPic == OledPic2.P4) {
             mqlib.oledDrawPicBy1024Hex(imOledPerson_P42)
@@ -106,8 +105,7 @@ namespace mqlib {
         }
     }
     //% subcategory="oled"
-    //% group='oled-人物2'
-    //% block="oled画人物2"
+    //% group='oled-画图pic'
     export function oledDrawPicBy1024Hex(im: number[]): void {
         let _screen = pins.createBuffer(1025);
         _screen[0] = 0x40
@@ -115,6 +113,18 @@ namespace mqlib {
             _screen[i + 1] = im[i]
         }
         pins.i2cWriteBuffer(60, _screen)
+    }
+    //% subcategory="oled"
+    //% group='oled-画图pic'
+    export function oledDrawPicBy12864Pixels(im: Image): void {
+        for (let y = 0; y < 64; y++) {
+            for (let x = 0; x < 128; x++) {
+                OLED12864_I2C.pixel(x, y, 0)
+                if (im.pixel(x, y)) {
+                    OLED12864_I2C.pixel(x, y, 1)
+                }
+            }
+        }
     }
 
     //% subcategory="oled"
