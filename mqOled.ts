@@ -275,30 +275,13 @@ namespace mqlib {
     export function oledDrawImgWithPixels12864(im: Image): void {
         for (let y = 0; y < 64; y++) {
             for (let x = 0; x < 128; x++) {
+                OLED12864_I2C.pixel(x, y, 0)
                 if (im.pixel(x, y)) {
                     OLED12864_I2C.pixel(x, y, 1)
                 }
             }
         }
         //todo-drawBmp
-        // let buf = pins.createBuffer(1025);
-        // let address = 60;
-        // let repeat = false;
-        // for (let y = 0; y < 64; y++) {
-        //     for (let x = 0; x < 128; x++) {
-        //         if (im.pixel(x, y)) {
-        //             buf[x] = 1;
-        //         }
-        //     }
-        // }
-        // for (let y = 0; y < 8; y++) {
-        //     for (let x = 0; x < 128; x++) {
-        //         if (im.pixel(x, y)) {
-        //             buf[x] = 1;
-        //         }
-        //     }
-        // }
-        // pins.i2cWriteBuffer(address, buf, repeat);
         // let _screen = pins.createBuffer(1025);
         // _screen[0] = 0x40
         // _screen[1] = 0xff
