@@ -97,6 +97,7 @@ namespace mqlib {
     
     //% subcategory="oled"
     //% group='oled-画图pic'
+    //% block
     export function oledDrawPicByMM(oledPic: OledPic2): void {
         if (oledPic == OledPic2.P4) {
             mqlib.oledDrawPicBy1024Hex(imOledPerson_P42)
@@ -106,6 +107,7 @@ namespace mqlib {
     }
     //% subcategory="oled"
     //% group='oled-画图pic'
+    //% block
     export function oledDrawPicBy1024Hex(im: number[]): void {
         let _screen = pins.createBuffer(1025);
         _screen[0] = 0x40
@@ -116,6 +118,7 @@ namespace mqlib {
     }
     //% subcategory="oled"
     //% group='oled-画图pic'
+    //% block
     export function oledDrawPicBy12864Pixels(im: Image): void {
         for (let y = 0; y < 64; y++) {
             for (let x = 0; x < 128; x++) {
