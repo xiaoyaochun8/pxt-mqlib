@@ -55,6 +55,292 @@ enum OledAnimal {
  */
 //% groups=['oled-形状','oled-橡皮檫','oled-中文','oled-表情','oled-人物','oled-动画','oled-画图']
 namespace mqlib {
+    
+    //% subcategory="oled"
+    //% group='oled-形状'
+    //% block="oled画正方形 $iSize"
+    //% iSize.min=1 iSize.max=3 iSize.defl=1
+    export function oledDrawSquare(iSize: number): void {
+        if (iSize == 3) {
+            OLED12864_I2C.rect(0, 0, 63, 63, 1);
+        } else if (iSize == 2) {
+            OLED12864_I2C.rect(0, 0, 30, 30, 1);
+        } else {
+            OLED12864_I2C.rect(0, 0, 10, 10, 1);
+        }
+    }
+    //% subcategory="oled"
+    //% group='oled-形状'
+    //% block="oled画长方形 $iSize"
+    //% iSize.min=1 iSize.max=3 iSize.defl=1
+    export function oledDrawRectangle(iSize: number): void {
+        if (iSize == 3) {
+            OLED12864_I2C.rect(0, 0, 127, 63, 1);
+        } else if (iSize == 2) {
+            OLED12864_I2C.rect(0, 0, 60, 30, 1);
+        } else {
+            OLED12864_I2C.rect(0, 0, 20, 10, 1);
+        }
+    }
+    //% subcategory="oled"
+    //% group='oled-橡皮檫'
+    //% block="oled矩形区域橡皮檫 x$xTmp y$yTmp 宽度$iWidth 高度$iHeight"
+    export function oledDrawRectAreaClean(xTmp: number, yTmp: number, iWidth: number, iHeight: number): void {
+        for (let y = yTmp; y < yTmp+iHeight; y++) {
+            for (let x = xTmp; x < xTmp+iWidth; x++) {
+                OLED12864_I2C.pixel(x, y, 0);
+            }
+        }
+    }
+    //% subcategory="oled"
+    //% group='oled-中文'
+    //% block="oled画中文 $oledChWord"
+    export function oledDrawChWord(oledChWord: OledChWord): void {
+        if (oledChWord == OledChWord.Da) {
+            mqlib.oledDrawImgWithPixels12864(imOledChWord_Da)
+        } else if (oledChWord == OledChWord.Zhong) {
+            mqlib.oledDrawImgWithPixels12864(imOledChWord_Zhong)
+        } else if (oledChWord == OledChWord.Xiao) {
+            mqlib.oledDrawImgWithPixels12864(imOledChWord_Xiao)
+        } else if (oledChWord == OledChWord.Qi) {
+            mqlib.oledDrawImgWithPixels12864(imOledChWord_Qi)
+        }
+    }
+    //% subcategory="oled"
+    //% group='oled-表情'
+    //% block="oled画表情 $oledFace"
+    //% gesture.fieldEditor="gridpicker"
+    //% gesture.fieldOptions.width=220
+    //% gesture.fieldOptions.columns=3
+    export function oledDrawFace(oledFace: OledFace): void {
+        if (oledFace == OledFace.Happy) {
+            mqlib.oledDrawImgWithPixels12864(imOledFace_Happy)
+        }else if(oledFace == OledFace.Sad) {
+            mqlib.oledDrawImgWithPixels12864(imOledFace_Sad)
+        }else if (oledFace == OledFace.Sleep) {
+            mqlib.oledDrawImgWithPixels12864(imOledFace_Sleep)
+        } else if (oledFace == OledFace.Angry) {
+            mqlib.oledDrawImgWithPixels12864(imOledFace_Angry)
+        } else if (oledFace == OledFace.Amazed) {
+            mqlib.oledDrawImgWithPixels12864(imOledFace_Amazed)
+        }
+    }
+    //% subcategory="oled"
+    //% group='oled-人物'
+    //% block="oled画人物 $oledPerson"
+    export function oledDrawPerson(oledPerson: OledPerson): void {
+        if (oledPerson == OledPerson.P1) {
+            mqlib.oledDrawImgWithPixels12864(imOledPerson_P1)
+        } else if (oledPerson == OledPerson.P2) {
+            mqlib.oledDrawImgWithPixels12864(imOledPerson_P2)
+        } else if (oledPerson == OledPerson.P3) {
+            mqlib.oledDrawImgWithPixels12864(imOledPerson_P3)
+        } else if (oledPerson == OledPerson.P4) {
+            mqlib.oledDrawImgWithPixels12864(imOledPerson_P4)
+        } else if (oledPerson == OledPerson.P5) {
+            mqlib.oledDrawImgWithPixels12864(imOledPerson_P5)
+        }
+    }
+    //% subcategory="oled"
+    //% group='oled-人物2'
+    //% block="oled画人物2"
+    export function oledDrawPerson2(): void {
+        let _screen = pins.createBuffer(1025);
+        _screen[0] = 0x40
+        for(let i=0;i<1024;i++){
+            _screen[i + 1] = imOledPerson_P42[i]
+        }
+        pins.i2cWriteBuffer(60, _screen)
+    }
+    //% subcategory="oled"
+    //% group='oled-风景'
+    //% block="oled画风景 $oledPic"
+    export function oledDrawPic(oledPic: OledPic): void {
+        if (oledPic == OledPic.P1) {
+            mqlib.oledDrawImgWithPixels12864(imOledPic_P1)
+        }else if (oledPic == OledPic.P2) {
+            mqlib.oledDrawImgWithPixels12864(imOledPic_P2)
+        }
+    }
+    //% subcategory="oled"
+    //% group='oled-动物'
+    //% block="oled画动物 $oledAnimal"
+    export function oledDrawAnimal(oledAnimal: OledAnimal): void {
+        if (oledAnimal == OledAnimal.a) {
+            mqlib.oledDrawImgWithPixels12864(imOledChWord_Animala)
+        } else if (oledAnimal == OledAnimal.b) {
+            mqlib.oledDrawImgWithPixels12864(imOledPic_P2)
+        }
+    }
+    //% subcategory="oled"
+    //% group='oled-动画'
+    //% block="oled直线动画1"
+    export function oledDrawAnim(): void {
+        let x = 0
+        basic.forever(function () {
+            if (x < 128) {
+                OLED12864_I2C.pixel(x, 0, 1)
+                x += 1
+            } else {
+                OLED12864_I2C.clear()
+                x = 0
+            }
+        })
+    }
+    //% subcategory="oled"
+    //% group='oled-动画'
+    //% block="oled长方形动画2"
+    export function oledDrawAnim2(): void {
+        let x = 4
+        basic.forever(function () {
+            if (x < 128) {
+                OLED12864_I2C.rect(0, 0, x, x/2, 1);
+                x += 4
+            } else {
+                OLED12864_I2C.clear()
+                x = 4
+            }
+        })
+    }
+    //% subcategory="oled"
+    //% group='oled-动画'
+    //% block="oled下雪动画3"
+    export function oledDrawAnim3(): void {
+        let x = 0;
+        let y = 0;
+        let cnt = 0;
+        basic.forever(function () {
+            x = Math.floor(Math.random() * 127);
+            y = Math.floor(Math.random() * 63);
+            OLED12864_I2C.pixel(x, y, 1);
+            cnt ++;
+            if(cnt > 128*10){
+                OLED12864_I2C.clear();
+                cnt = 0;
+            }
+        })
+    }
+    //% subcategory="oled"
+    //% group='oled-动画'
+    //% block="oled雪人动画4"
+    export function oledDrawAnim4(): void {
+        mqlib.oledDrawImgWithPixels12864(imOledAnim4SnowMan);
+        let x = 0;
+        let y = 0;
+        let x2 = 0;
+        let y2 = 0;
+        let cnt = 0;
+        basic.forever(function () {
+            //雪地
+            x = Math.floor(Math.random() * 127);
+            y = Math.floor(Math.random() * 23) + 40;
+            OLED12864_I2C.pixel(x, y, 1);
+            cnt++;
+            if (cnt > 128 * 10) {
+                OLED12864_I2C.clear();
+                cnt = 40;
+                mqlib.oledDrawImgWithPixels12864(imOledAnim4SnowMan);
+            }
+        })
+        basic.forever(function () {
+            //天空
+            x2 = Math.floor(Math.random() * 127);
+            y2 = Math.floor(Math.random() * 40);
+            OLED12864_I2C.pixel(x2, y2, 1);
+            basic.pause(5);
+            OLED12864_I2C.pixel(x2, y2, 0);
+        })
+    }
+
+    /**
+     * Create a 128x64 pixel matrix for use as a custom character.
+     */
+    //% subcategory="oled"
+    //% group='oled-画图'
+    //% block="oled点阵128x64"
+    //% imageLiteral=1
+    //% imageLiteralColumns=128
+    //% imageLiteralRows=64
+    //% imageLiteralScale=1
+    //% shim=images::createImage
+    export function oledCharacterPixels12864(i: string): Image {
+        return <Image><any>i;
+    }
+    /**
+     * Create a 128x64 pixel matrix for use as a custom character.
+     */
+    //% subcategory="oled"
+    //% group='oled-画图'
+    //% block="oled画图128x64 $im"
+    export function oledDrawImgWithPixels12864(im: Image): void {
+        for (let y = 0; y < 64; y++) {
+            for (let x = 0; x < 128; x++) {
+                if (im.pixel(x, y)) {
+                    OLED12864_I2C.pixel(x, y, 1)
+                }
+            }
+        }
+        //todo-drawBmp
+        // let buf = pins.createBuffer(1025);
+        // let address = 60;
+        // let repeat = false;
+        // for (let y = 0; y < 64; y++) {
+        //     for (let x = 0; x < 128; x++) {
+        //         if (im.pixel(x, y)) {
+        //             buf[x] = 1;
+        //         }
+        //     }
+        // }
+        // for (let y = 0; y < 8; y++) {
+        //     for (let x = 0; x < 128; x++) {
+        //         if (im.pixel(x, y)) {
+        //             buf[x] = 1;
+        //         }
+        //     }
+        // }
+        // pins.i2cWriteBuffer(address, buf, repeat);
+        // let _screen = pins.createBuffer(1025);
+        // _screen[0] = 0x40
+        // _screen[1] = 0xff
+        // _screen[2] = 0x01
+        // _screen[3] = 0x02
+        // _screen[4] = 0x04
+        // _screen[5] = 0x08
+        // _screen[6] = 0x10
+        // _screen[7] = 0x20
+        // _screen[8] = 0x40
+        // _screen[9] = 0x80
+        // pins.i2cWriteBuffer(60, _screen)
+    }
+    /**
+     * Create a 13x13 pixel matrix for use as a custom character.
+     */
+    //% subcategory="oled"
+    //% group='oled-画图'
+    //% block="oled点阵13x13"
+    //% imageLiteral=1
+    //% imageLiteralColumns=13
+    //% imageLiteralRows=13
+    //% imageLiteralScale=1
+    //% shim=images::createImage
+    export function oledCharacterPixels1313(i: string): Image {
+        return <Image><any>i;
+    }
+    /**
+     * Create a 13x13 pixel matrix for use as a custom character.
+     */
+    //% subcategory="oled"
+    //% group='oled-画图'
+    //% block="oled画图13x13 $im"
+    export function oledDrawImgWithPixels1313(im: Image): void {
+        for (let y = 0; y < 13; y++) {
+            for (let x = 0; x < 13; x++) {
+                if (im.pixel(x, y)) {
+                    OLED12864_I2C.pixel(x+58, y+26, 1)
+                }
+            }
+        }
+    }
     //汪汪队天天2
     let imOledPerson_P52 = [0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x03, 0x02, 0x07, 0x06, 0x05, 0x1f, 0x3f, 0x7c, 0x70, 0x70, 0x70, 0x7d, 0x7d, 0x75, 0x75, 0x73, 0x30, 0x18, 0x19, 0x15, 0x16, 0x13, 0x18, 0x08, 0x08, 0x0c, 0x06, 0x02, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x3f, 0x6b, 0x96, 0x2c, 0xd8, 0xb7, 0x78, 0xc0, 0x80, 0x01, 0x03, 0x00, 0x00, 0x80, 0x80, 0x40, 0x20, 0xa0, 0xa0, 0x40, 0x00, 0x0e, 0x1b, 0x16, 0x3f, 0xdb, 0x7c, 0x1b, 0x06, 0x03, 0x01, 0x80, 0xc0, 0x3f, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x0f, 0x30, 0x40, 0x80, 0x80, 0xc0, 0x78, 0x0e, 0x01, 0xf8, 0x0f, 0x00, 0xc0, 0x0e, 0x0f, 0x1f, 0x2f, 0x3d, 0x39, 0x3f, 0x3d, 0x1f, 0x04, 0x00, 0x00, 0x00, 0x80, 0x4e, 0x59, 0xd1, 0xd9, 0x8e, 0x0c, 0x0f, 0xc1, 0x7f, 0xcf, 0xf0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0f, 0xf8, 0x07, 0x03, 0x01, 0x03, 0x0e, 0x00, 0x00, 0x00, 0xc0, 0x70, 0x98, 0xfe, 0x0f, 0x00, 0x80, 0xc0, 0xc0, 0x40, 0xc0, 0x80, 0x00, 0x18, 0x08, 0x08, 0x08, 0x09, 0x09, 0x09, 0x13, 0x13, 0x35, 0x2f, 0xd9, 0xb1, 0xc1, 0xf9, 0xe7, 0x3f, 0x03, 0x02, 0x02, 0x06, 0x04, 0x04, 0x1f, 0x20, 0x3f, 0x1c, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xc0, 0xe0, 0x38, 0x0c, 0x02, 0x03, 0x01, 0x31, 0x11, 0x13, 0x1f, 0x15, 0x63, 0xff, 0xf8, 0xcf, 0x5c, 0x74, 0x68, 0x4f, 0x40, 0x71, 0xff, 0xf3, 0xa7, 0xae, 0xac, 0xfc, 0x5c, 0x4a, 0x4b, 0x6d, 0xb6, 0x79, 0x3c, 0x9c, 0xcf, 0x7f, 0x0b, 0x18, 0x10, 0x30, 0x20, 0x60, 0x40, 0xf0, 0x60, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x3f, 0x60, 0x40, 0x4f, 0x39, 0x21, 0x41, 0x43, 0xc2, 0x82, 0x82, 0x82, 0x02, 0x06, 0x04, 0x84, 0x84, 0x84, 0x06, 0x0f, 0x72, 0x87, 0x1c, 0xf0, 0x00, 0xff, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x07, 0xfc, 0x0c, 0xf0, 0x03, 0x0c, 0xfb, 0xbe, 0xe0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xe0, 0x30, 0xe0, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0f, 0x18, 0x10, 0x38, 0x28, 0x3f, 0x6f, 0x43, 0xc2, 0x42, 0xff, 0xcf, 0x26, 0x12, 0xff, 0x03, 0x00, 0x00, 0x00, 0x02, 0xff, 0x86, 0x1f, 0x30, 0xc0, 0x00, 0x1e, 0xf3, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xc0, 0x40, 0x40, 0x40, 0x80, 0xc0, 0xe0, 0x20, 0xe0, 0x20, 0x20, 0xe0, 0x40, 0x40, 0xc0, 0xe0, 0x20, 0x20, 0x20, 0x20, 0xe0, 0x20, 0xe0, 0xe0, 0x20, 0x20, 0x20, 0xe0, 0xe0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00];
     //汪汪队天天
@@ -722,292 +1008,5 @@ namespace mqlib {
     . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
     `)
-
-
-    //% subcategory="oled"
-    //% group='oled-形状'
-    //% block="oled画正方形 $iSize"
-    //% iSize.min=1 iSize.max=3 iSize.defl=1
-    export function oledDrawSquare(iSize: number): void {
-        if (iSize == 3) {
-            OLED12864_I2C.rect(0, 0, 63, 63, 1);
-        } else if (iSize == 2) {
-            OLED12864_I2C.rect(0, 0, 30, 30, 1);
-        } else {
-            OLED12864_I2C.rect(0, 0, 10, 10, 1);
-        }
-    }
-    //% subcategory="oled"
-    //% group='oled-形状'
-    //% block="oled画长方形 $iSize"
-    //% iSize.min=1 iSize.max=3 iSize.defl=1
-    export function oledDrawRectangle(iSize: number): void {
-        if (iSize == 3) {
-            OLED12864_I2C.rect(0, 0, 127, 63, 1);
-        } else if (iSize == 2) {
-            OLED12864_I2C.rect(0, 0, 60, 30, 1);
-        } else {
-            OLED12864_I2C.rect(0, 0, 20, 10, 1);
-        }
-    }
-    //% subcategory="oled"
-    //% group='oled-橡皮檫'
-    //% block="oled矩形区域橡皮檫 x$xTmp y$yTmp 宽度$iWidth 高度$iHeight"
-    export function oledDrawRectAreaClean(xTmp: number, yTmp: number, iWidth: number, iHeight: number): void {
-        for (let y = yTmp; y < yTmp+iHeight; y++) {
-            for (let x = xTmp; x < xTmp+iWidth; x++) {
-                OLED12864_I2C.pixel(x, y, 0);
-            }
-        }
-    }
-    //% subcategory="oled"
-    //% group='oled-中文'
-    //% block="oled画中文 $oledChWord"
-    export function oledDrawChWord(oledChWord: OledChWord): void {
-        if (oledChWord == OledChWord.Da) {
-            mqlib.oledDrawImgWithPixels12864(imOledChWord_Da)
-        } else if (oledChWord == OledChWord.Zhong) {
-            mqlib.oledDrawImgWithPixels12864(imOledChWord_Zhong)
-        } else if (oledChWord == OledChWord.Xiao) {
-            mqlib.oledDrawImgWithPixels12864(imOledChWord_Xiao)
-        } else if (oledChWord == OledChWord.Qi) {
-            mqlib.oledDrawImgWithPixels12864(imOledChWord_Qi)
-        }
-    }
-    //% subcategory="oled"
-    //% group='oled-表情'
-    //% block="oled画表情 $oledFace"
-    //% gesture.fieldEditor="gridpicker"
-    //% gesture.fieldOptions.width=220
-    //% gesture.fieldOptions.columns=3
-    export function oledDrawFace(oledFace: OledFace): void {
-        if (oledFace == OledFace.Happy) {
-            mqlib.oledDrawImgWithPixels12864(imOledFace_Happy)
-        }else if(oledFace == OledFace.Sad) {
-            mqlib.oledDrawImgWithPixels12864(imOledFace_Sad)
-        }else if (oledFace == OledFace.Sleep) {
-            mqlib.oledDrawImgWithPixels12864(imOledFace_Sleep)
-        } else if (oledFace == OledFace.Angry) {
-            mqlib.oledDrawImgWithPixels12864(imOledFace_Angry)
-        } else if (oledFace == OledFace.Amazed) {
-            mqlib.oledDrawImgWithPixels12864(imOledFace_Amazed)
-        }
-    }
-    //% subcategory="oled"
-    //% group='oled-人物'
-    //% block="oled画人物 $oledPerson"
-    export function oledDrawPerson(oledPerson: OledPerson): void {
-        if (oledPerson == OledPerson.P1) {
-            mqlib.oledDrawImgWithPixels12864(imOledPerson_P1)
-        } else if (oledPerson == OledPerson.P2) {
-            mqlib.oledDrawImgWithPixels12864(imOledPerson_P2)
-        } else if (oledPerson == OledPerson.P3) {
-            mqlib.oledDrawImgWithPixels12864(imOledPerson_P3)
-        } else if (oledPerson == OledPerson.P4) {
-            mqlib.oledDrawImgWithPixels12864(imOledPerson_P4)
-        } else if (oledPerson == OledPerson.P5) {
-            mqlib.oledDrawImgWithPixels12864(imOledPerson_P5)
-        }
-    }
-    //% subcategory="oled"
-    //% group='oled-人物2'
-    //% block="oled画人物2"
-    export function oledDrawPerson2(): void {
-        let _screen = pins.createBuffer(1025);
-        _screen[0] = 0x40
-        for(let i=0;i<1024;i++){
-            _screen[i + 1] = imOledPerson_P42[i]
-        }
-        pins.i2cWriteBuffer(60, _screen)
-    }
-    //% subcategory="oled"
-    //% group='oled-风景'
-    //% block="oled画风景 $oledPic"
-    export function oledDrawPic(oledPic: OledPic): void {
-        if (oledPic == OledPic.P1) {
-            mqlib.oledDrawImgWithPixels12864(imOledPic_P1)
-        }else if (oledPic == OledPic.P2) {
-            mqlib.oledDrawImgWithPixels12864(imOledPic_P2)
-        }
-    }
-    //% subcategory="oled"
-    //% group='oled-动物'
-    //% block="oled画动物 $oledAnimal"
-    export function oledDrawAnimal(oledAnimal: OledAnimal): void {
-        if (oledAnimal == OledAnimal.a) {
-            mqlib.oledDrawImgWithPixels12864(imOledChWord_Animala)
-        } else if (oledAnimal == OledAnimal.b) {
-            mqlib.oledDrawImgWithPixels12864(imOledPic_P2)
-        }
-    }
-    //% subcategory="oled"
-    //% group='oled-动画'
-    //% block="oled直线动画1"
-    export function oledDrawAnim(): void {
-        let x = 0
-        basic.forever(function () {
-            if (x < 128) {
-                OLED12864_I2C.pixel(x, 0, 1)
-                x += 1
-            } else {
-                OLED12864_I2C.clear()
-                x = 0
-            }
-        })
-    }
-    //% subcategory="oled"
-    //% group='oled-动画'
-    //% block="oled长方形动画2"
-    export function oledDrawAnim2(): void {
-        let x = 4
-        basic.forever(function () {
-            if (x < 128) {
-                OLED12864_I2C.rect(0, 0, x, x/2, 1);
-                x += 4
-            } else {
-                OLED12864_I2C.clear()
-                x = 4
-            }
-        })
-    }
-    //% subcategory="oled"
-    //% group='oled-动画'
-    //% block="oled下雪动画3"
-    export function oledDrawAnim3(): void {
-        let x = 0;
-        let y = 0;
-        let cnt = 0;
-        basic.forever(function () {
-            x = Math.floor(Math.random() * 127);
-            y = Math.floor(Math.random() * 63);
-            OLED12864_I2C.pixel(x, y, 1);
-            cnt ++;
-            if(cnt > 128*10){
-                OLED12864_I2C.clear();
-                cnt = 0;
-            }
-        })
-    }
-    //% subcategory="oled"
-    //% group='oled-动画'
-    //% block="oled雪人动画4"
-    export function oledDrawAnim4(): void {
-        mqlib.oledDrawImgWithPixels12864(imOledAnim4SnowMan);
-        let x = 0;
-        let y = 0;
-        let x2 = 0;
-        let y2 = 0;
-        let cnt = 0;
-        basic.forever(function () {
-            //雪地
-            x = Math.floor(Math.random() * 127);
-            y = Math.floor(Math.random() * 23) + 40;
-            OLED12864_I2C.pixel(x, y, 1);
-            cnt++;
-            if (cnt > 128 * 10) {
-                OLED12864_I2C.clear();
-                cnt = 40;
-                mqlib.oledDrawImgWithPixels12864(imOledAnim4SnowMan);
-            }
-        })
-        basic.forever(function () {
-            //天空
-            x2 = Math.floor(Math.random() * 127);
-            y2 = Math.floor(Math.random() * 40);
-            OLED12864_I2C.pixel(x2, y2, 1);
-            basic.pause(5);
-            OLED12864_I2C.pixel(x2, y2, 0);
-        })
-    }
-
-    /**
-     * Create a 128x64 pixel matrix for use as a custom character.
-     */
-    //% subcategory="oled"
-    //% group='oled-画图'
-    //% block="oled点阵128x64"
-    //% imageLiteral=1
-    //% imageLiteralColumns=128
-    //% imageLiteralRows=64
-    //% imageLiteralScale=1
-    //% shim=images::createImage
-    export function oledCharacterPixels12864(i: string): Image {
-        return <Image><any>i;
-    }
-    /**
-     * Create a 128x64 pixel matrix for use as a custom character.
-     */
-    //% subcategory="oled"
-    //% group='oled-画图'
-    //% block="oled画图128x64 $im"
-    export function oledDrawImgWithPixels12864(im: Image): void {
-        for (let y = 0; y < 64; y++) {
-            for (let x = 0; x < 128; x++) {
-                if (im.pixel(x, y)) {
-                    OLED12864_I2C.pixel(x, y, 1)
-                }
-            }
-        }
-        //todo-drawBmp
-        // let buf = pins.createBuffer(1025);
-        // let address = 60;
-        // let repeat = false;
-        // for (let y = 0; y < 64; y++) {
-        //     for (let x = 0; x < 128; x++) {
-        //         if (im.pixel(x, y)) {
-        //             buf[x] = 1;
-        //         }
-        //     }
-        // }
-        // for (let y = 0; y < 8; y++) {
-        //     for (let x = 0; x < 128; x++) {
-        //         if (im.pixel(x, y)) {
-        //             buf[x] = 1;
-        //         }
-        //     }
-        // }
-        // pins.i2cWriteBuffer(address, buf, repeat);
-        // let _screen = pins.createBuffer(1025);
-        // _screen[0] = 0x40
-        // _screen[1] = 0xff
-        // _screen[2] = 0x01
-        // _screen[3] = 0x02
-        // _screen[4] = 0x04
-        // _screen[5] = 0x08
-        // _screen[6] = 0x10
-        // _screen[7] = 0x20
-        // _screen[8] = 0x40
-        // _screen[9] = 0x80
-        // pins.i2cWriteBuffer(60, _screen)
-    }
-    /**
-     * Create a 13x13 pixel matrix for use as a custom character.
-     */
-    //% subcategory="oled"
-    //% group='oled-画图'
-    //% block="oled点阵13x13"
-    //% imageLiteral=1
-    //% imageLiteralColumns=13
-    //% imageLiteralRows=13
-    //% imageLiteralScale=1
-    //% shim=images::createImage
-    export function oledCharacterPixels1313(i: string): Image {
-        return <Image><any>i;
-    }
-    /**
-     * Create a 13x13 pixel matrix for use as a custom character.
-     */
-    //% subcategory="oled"
-    //% group='oled-画图'
-    //% block="oled画图13x13 $im"
-    export function oledDrawImgWithPixels1313(im: Image): void {
-        for (let y = 0; y < 13; y++) {
-            for (let x = 0; x < 13; x++) {
-                if (im.pixel(x, y)) {
-                    OLED12864_I2C.pixel(x+58, y+26, 1)
-                }
-            }
-        }
-    }
 
 }
