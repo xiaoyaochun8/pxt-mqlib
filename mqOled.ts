@@ -408,7 +408,7 @@ namespace mqlib {
     export function oledDrawImgWithPixels12864(im: Image): void {
         for (let y = 0; y < 64; y++) {
             for (let x = 0; x < 128; x++) {
-                OLED12864_I2C.pixel(x, y, 0)
+                // OLED12864_I2C.pixel(x, y, 0)
                 if (im.pixel(x, y)) {
                     OLED12864_I2C.pixel(x, y, 1)
                 }
