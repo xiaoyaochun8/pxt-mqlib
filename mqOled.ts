@@ -388,6 +388,7 @@ namespace mqlib {
      */
     //% subcategory="oled"
     //% group='oled-画图'
+    //% advanced=true
     //% block="oled点阵128x64"
     //% imageLiteral=1
     //% imageLiteralColumns=128
@@ -402,6 +403,7 @@ namespace mqlib {
      */
     //% subcategory="oled"
     //% group='oled-画图'
+    //% advanced=true
     //% block="oled画图128x64 $im"
     export function oledDrawImgWithPixels12864(im: Image): void {
         for (let y = 0; y < 64; y++) {
@@ -431,6 +433,7 @@ namespace mqlib {
      */
     //% subcategory="oled"
     //% group='oled-画图'
+    //% advanced=true
     //% block="oled点阵13x13"
     //% imageLiteral=1
     //% imageLiteralColumns=13
@@ -445,6 +448,7 @@ namespace mqlib {
      */
     //% subcategory="oled"
     //% group='oled-画图'
+    //% advanced=true
     //% block="oled画图13x13 $im"
     export function oledDrawImgWithPixels1313(im: Image): void {
         for (let y = 0; y < 13; y++) {
