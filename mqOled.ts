@@ -1,54 +1,45 @@
 /**
 * 使用此文件来定义自定义函数和图形块。
 * 想了解更详细的信息，请前往 https://makecode.microbit.org/blocks/custom
-
 */
 
-enum OledFace {
-    //% block="开心"
-    Happy,
-    //% block="伤心"
-    Sad,
-    //% block="睡觉"
-    Sleep,
-    //% block="生气"
-    Angry,
-    //% block="惊讶"
-    Amazed,
-}
-enum OledChWord {
-    //% block="大"
-    Da,
-    //% block="中"
-    Zhong,
-    //% block="小"
-    Xiao,
-    //% block="奇"
-    Qi,
-}
-enum OledPerson {
-    //% block="小人"
-    P1,
-    //% block="火柴人"
-    P2,
-    //% block="机器人"
-    P3,
-    //% block="海底小纵队队长"
-    P4,
-    //% block="汪汪队天天"
-    P5,
-}
 enum OledPic {
-    //% block="山"
+    //% block="表情-开心"
+    Happy,
+    //% block="表情-伤心"
+    Sad,
+    //% block="表情-睡觉"
+    Sleep,
+    //% block="表情-生气"
+    Angry,
+    //% block="表情-惊讶"
+    Amazed,
+    //% block="人物-小人"
     P1,
-    //% block="河流"
+    //% block="人物-火柴人"
     P2,
-}
-enum OledAnimal {
-    //% block="小仓鼠"
+    //% block="人物-机器人"
+    P3,
+    //% block="人物-海底小纵队队长"
+    P4,
+    //% block="人物-汪汪队天天"
+    P5,
+    //% block="动物-小仓鼠"
     a,
-    //% block="b"
+    //% block="动物-b"
     b,
+    //% block="文字-大"
+    Da,
+    //% block="文字-中"
+    Zhong,
+    //% block="文字-小"
+    Xiao,
+    //% block="文字-奇"
+    Qi,
+    //% block="风景-山峰"
+    Pic1,
+    //% block="风景-河流"
+    Pic2,
 }
 
 enum OledPic2 {
@@ -446,73 +437,46 @@ namespace mqlib {
             mqlib.oledDrawPicBy1024Hex(imOledPerson_P52)
         }
     }
-    
-    //% subcategory="oled"
-    //% group='oled-中文'
-    //% block="oled画中文 $oledChWord"
-    export function oledDrawChWord(oledChWord: OledChWord): void {
-        if (oledChWord == OledChWord.Da) {
-            mqlib.oledDrawImgWithPixels12864(imOledChWord_Da)
-        } else if (oledChWord == OledChWord.Zhong) {
-            mqlib.oledDrawImgWithPixels12864(imOledChWord_Zhong)
-        } else if (oledChWord == OledChWord.Xiao) {
-            mqlib.oledDrawImgWithPixels12864(imOledChWord_Xiao)
-        } else if (oledChWord == OledChWord.Qi) {
-            mqlib.oledDrawImgWithPixels12864(imOledChWord_Qi)
-        }
-    }
-    //% subcategory="oled"
-    //% group='oled-表情'
-    //% block="oled画表情 $oledFace"
-    //% gesture.fieldEditor="gridpicker"
-    //% gesture.fieldOptions.width=220
-    //% gesture.fieldOptions.columns=3
-    export function oledDrawFace(oledFace: OledFace): void {
-        if (oledFace == OledFace.Happy) {
-            mqlib.oledDrawImgWithPixels12864(imOledFace_Happy)
-        }else if(oledFace == OledFace.Sad) {
-            mqlib.oledDrawImgWithPixels12864(imOledFace_Sad)
-        }else if (oledFace == OledFace.Sleep) {
-            mqlib.oledDrawImgWithPixels12864(imOledFace_Sleep)
-        } else if (oledFace == OledFace.Angry) {
-            mqlib.oledDrawImgWithPixels12864(imOledFace_Angry)
-        } else if (oledFace == OledFace.Amazed) {
-            mqlib.oledDrawImgWithPixels12864(imOledFace_Amazed)
-        }
-    }
-    //% subcategory="oled"
-    //% group='oled-人物'
-    //% block="oled画人物 $oledPerson"
-    export function oledDrawPerson(oledPerson: OledPerson): void {
-        if (oledPerson == OledPerson.P1) {
-            mqlib.oledDrawImgWithPixels12864(imOledPerson_P1)
-        } else if (oledPerson == OledPerson.P2) {
-            mqlib.oledDrawImgWithPixels12864(imOledPerson_P2)
-        } else if (oledPerson == OledPerson.P3) {
-            mqlib.oledDrawImgWithPixels12864(imOledPerson_P3)
-        } else if (oledPerson == OledPerson.P4) {
-            mqlib.oledDrawImgWithPixels12864(imOledPerson_P4)
-        } else if (oledPerson == OledPerson.P5) {
-            mqlib.oledDrawImgWithPixels12864(imOledPerson_P5)
-        }
-    }
+
     //% subcategory="oled"
     //% group='oled-风景'
     //% block="oled画风景 $oledPic"
     export function oledDrawPic(oledPic: OledPic): void {
-        if (oledPic == OledPic.P1) {
+        if (oledPic == OledPic.Da) {
+            mqlib.oledDrawImgWithPixels12864(imOledChWord_Da)
+        } else if (oledPic == OledPic.Zhong) {
+            mqlib.oledDrawImgWithPixels12864(imOledChWord_Zhong)
+        } else if (oledPic == OledPic.Xiao) {
+            mqlib.oledDrawImgWithPixels12864(imOledChWord_Xiao)
+        } else if (oledPic == OledPic.Qi) {
+            mqlib.oledDrawImgWithPixels12864(imOledChWord_Qi)
+        } else if (oledPic == OledPic.Happy) {
+            mqlib.oledDrawImgWithPixels12864(imOledFace_Happy)
+        } else if (oledPic == OledPic.Sad) {
+            mqlib.oledDrawImgWithPixels12864(imOledFace_Sad)
+        } else if (oledPic == OledPic.Sleep) {
+            mqlib.oledDrawImgWithPixels12864(imOledFace_Sleep)
+        } else if (oledPic == OledPic.Angry) {
+            mqlib.oledDrawImgWithPixels12864(imOledFace_Angry)
+        } else if (oledPic == OledPic.Amazed) {
+            mqlib.oledDrawImgWithPixels12864(imOledFace_Amazed)
+        } else if (oledPic == OledPic.P1) {
+            mqlib.oledDrawImgWithPixels12864(imOledPerson_P1)
+        } else if (oledPic == OledPic.P2) {
+            mqlib.oledDrawImgWithPixels12864(imOledPerson_P2)
+        } else if (oledPic == OledPic.P3) {
+            mqlib.oledDrawImgWithPixels12864(imOledPerson_P3)
+        } else if (oledPic == OledPic.P4) {
+            mqlib.oledDrawImgWithPixels12864(imOledPerson_P4)
+        } else if (oledPic == OledPic.P5) {
+            mqlib.oledDrawImgWithPixels12864(imOledPerson_P5)
+        } else if (oledPic == OledPic.Pic1) {
             mqlib.oledDrawImgWithPixels12864(imOledPic_P1)
-        }else if (oledPic == OledPic.P2) {
+        } else if (oledPic == OledPic.Pic2) {
             mqlib.oledDrawImgWithPixels12864(imOledPic_P2)
-        }
-    }
-    //% subcategory="oled"
-    //% group='oled-动物'
-    //% block="oled画动物 $oledAnimal"
-    export function oledDrawAnimal(oledAnimal: OledAnimal): void {
-        if (oledAnimal == OledAnimal.a) {
+        } else if (oledPic == OledPic.a) {
             mqlib.oledDrawImgWithPixels12864(imOledChWord_Animala)
-        } else if (oledAnimal == OledAnimal.b) {
+        } else if (oledPic == OledPic.b) {
             mqlib.oledDrawImgWithPixels12864(imOledPic_P2)
         }
     }
