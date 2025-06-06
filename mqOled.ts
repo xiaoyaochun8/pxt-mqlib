@@ -43,42 +43,10 @@ enum OledPic {
 }
 
 enum OledPic2 {
-    //% block="表情-开心"
-    Happy,
-    //% block="表情-伤心"
-    Sad,
-    //% block="表情-睡觉"
-    Sleep,
-    //% block="表情-生气"
-    Angry,
-    //% block="表情-惊讶"
-    Amazed,
-    //% block="人物-小人"
-    P1,
-    //% block="人物-火柴人"
-    P2,
-    //% block="人物-机器人"
-    P3,
     //% block="人物-海底小纵队队长"
     P4,
     //% block="人物-汪汪队天天"
     P5,
-    //% block="动物-小仓鼠"
-    a,
-    //% block="动物-b"
-    b,
-    //% block="文字-大"
-    Da,
-    //% block="文字-中"
-    Zhong,
-    //% block="文字-小"
-    Xiao,
-    //% block="文字-奇"
-    Qi,
-    //% block="风景-山峰"
-    Pic1,
-    //% block="风景-河流"
-    Pic2,
 }
 
 /**
@@ -429,7 +397,7 @@ namespace mqlib {
     }
     //% subcategory="oled"
     //% group='oled-人物'
-    //% block
+    //% block="oled显示图片hex $oledPic"
     export function oledDrawPicByMM(oledPic: OledPic2): void {
         if (oledPic == OledPic2.P4) {
             mqlib.oledDrawPicBy1024Hex(imOledPerson_P42)
@@ -440,7 +408,7 @@ namespace mqlib {
 
     //% subcategory="oled"
     //% group='oled-风景'
-    //% block="oled画风景 $oledPic"
+    //% block="oled显示图片pixel $oledPic"
     export function oledDrawPic(oledPic: OledPic): void {
         if (oledPic == OledPic.Da) {
             mqlib.oledDrawImgWithPixels12864(imOledChWord_Da)
