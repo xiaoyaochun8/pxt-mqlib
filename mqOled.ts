@@ -287,7 +287,7 @@ namespace mqlib {
     //% subcategory="oled"
     //% group='oled-眼睛'
     //% block="oled眨眼睛图片2"
-    export function oledShowEye5(): void {
+    export function oledShowEye7(): void {
         mqlib.oledDrawPicBy1024Hex(imVideo1_5);
     }
     //% subcategory="oled"
