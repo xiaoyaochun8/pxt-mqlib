@@ -7,7 +7,8 @@
         "radio": "*",
         "microphone": "*",
         "OLED12864_I2C": "github:makecode-extensions/oled12864_i2c#v1.5.0",
-        "MakerBit-IR-Receiver-mq": "github:xiaoyaochun8/pxt-makerbit-ir-receiver-mq#33c0622f82c69d650b0b4b1ce6eaa8543b079661"
+        "MakerBit-IR-Receiver-mq": "github:xiaoyaochun8/pxt-makerbit-ir-receiver-mq#33c0622f82c69d650b0b4b1ce6eaa8543b079661",
+        "pxt-mqlib-oled2": "github:xiaoyaochun8/pxt-mqlib-oled2#f08246c00e7fbf302e29e05da8e1769c479e85c5"
     },
     "files": [
         "README.md",
