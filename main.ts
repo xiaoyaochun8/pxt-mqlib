@@ -41,7 +41,6 @@ namespace mqlib {
      * 输入270度转为180度
      * @param v describe
      */
-    //% block='/\\ 270度模式：输入0～270 $v'
     //% group='舵机270'
     //% weight=10
     //% v.min=0 v.max=270 v.defl=0
