@@ -26,6 +26,13 @@ enum DgPins {
     P3 = DigitalPin.P3
 }
 
+enum MotorRotation {
+    //% block="顺时针"
+    R1 = 1,
+    //% block="逆时针"
+    R2 = 2
+}
+
 /**
  * mqlib blocks
  */
@@ -47,7 +54,6 @@ namespace mqlib {
     export function arc270(v: number): number {
         return Math.map(v, 0, 270, 0, 180);
     }
-
     /**
      * 设置270度舵机角度-270
      * @param v describe
@@ -59,7 +65,6 @@ namespace mqlib {
     export function setSteer270(p: AnPins, v: number): void {
         pins.servoWritePin(p, Math.map(v, 0, 270, 0, 180));
     }
-
     /**
      * 设置270度舵机角度-10
      * @param v describe
@@ -79,7 +84,21 @@ namespace mqlib {
     //% group='电机'
     //% weight=10
     export function setMotorStop(p: AnPins): void {
-        pins.servoWritePin(p, 0);
+        pins.servoWritePin(p, 90);
+    }
+    /**
+     * 设置电机旋转方向和速度
+     */
+    //% block='设置 $p 电机旋转方向 $motorRotation 速度 $v'
+    //% group='电机'
+    //% weight=10
+    //% v.min=0 v.max=100 v.defl=0
+    export function setMotorRotationAndSpeed(p: AnPins, motorRotation: MotorRotation, v: number): void {
+        if (motorRotation == MotorRotation.R1) {
+            pins.servoWritePin(p, Math.map(v, 0, 100, 80, 0));
+        } else {
+            pins.servoWritePin(p, Math.map(v, 0, 100, 100, 180));
+        }
     }
 
     /**
