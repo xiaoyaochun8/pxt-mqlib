@@ -73,6 +73,16 @@ namespace mqlib {
     }
 
     /**
+     * 设置电机停止
+     */
+    //% block='设置 $p 电机停止'
+    //% group='电机'
+    //% weight=10
+    export function setMotorStop(p: AnPins): void {
+        pins.servoWritePin(p, 0);
+    }
+
+    /**
      * Get the color wheel field editor
      * @param color color
      */
