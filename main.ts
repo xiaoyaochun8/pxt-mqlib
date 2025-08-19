@@ -95,7 +95,7 @@ namespace mqlib {
     //% v.min=0 v.max=100 v.defl=0
     export function setMotorRotationAndSpeed(p: AnPins, motorRotation: MotorRotation, v: number): void {
         if (motorRotation == MotorRotation.R1) {
-            pins.servoWritePin(p, Math.map(v, 0, 100, 80, 0));
+            pins.servoWritePin(p, Math.map(v, 0, 100, 78, 0));
         } else {
             pins.servoWritePin(p, Math.map(v, 0, 100, 100, 180));
         }
