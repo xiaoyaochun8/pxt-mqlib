@@ -27,7 +27,11 @@ enum DgPins {
     //% block="P2"
     P2 = DigitalPin.P2,
     //% block="P3"
-    P3 = DigitalPin.P3
+    P3 = DigitalPin.P3,
+    //% block="P4"
+    P4 = DigitalPin.P4,
+    //% block="P10"
+    P10 = DigitalPin.P10
 }
 
 enum MotorRotation {
@@ -67,6 +71,10 @@ namespace mqlib {
     //% weight=9
     //% v.min=0 v.max=270 v.defl=0
     export function setSteer270(p: AnPins, v: number): void {
+        if(p == AnPins.P3 || p == AnPins.P4 || p == AnPins.P10){
+            led.enable(false)
+            pins.setPull(p, PinPullMode.PullDown)
+        }
         pins.servoWritePin(p, Math.map(v, 0, 270, 0, 180));
     }
     /**
@@ -78,6 +86,10 @@ namespace mqlib {
     //% weight=10
     //% v.shadow="protractorPicker"
     export function setSteer180_180(p: AnPins, v: number): void {
+        if (p == AnPins.P3 || p == AnPins.P4 || p == AnPins.P10) {
+            led.enable(false)
+            pins.setPull(p, PinPullMode.PullDown)
+        }
         pins.servoWritePin(p, Math.map(v, 0, 180, 35, 145));
     }
 
@@ -88,6 +100,10 @@ namespace mqlib {
     //% group='电机'
     //% weight=10
     export function setMotorStop(p: AnPins): void {
+        if (p == AnPins.P3 || p == AnPins.P4 || p == AnPins.P10) {
+            led.enable(false)
+            pins.setPull(p, PinPullMode.PullDown)
+        }
         pins.servoWritePin(p, 90);
     }
     /**
@@ -98,6 +114,10 @@ namespace mqlib {
     //% weight=10
     //% v.min=0 v.max=100 v.defl=0
     export function setMotorRotationAndSpeed(p: AnPins, motorRotation: MotorRotation, v: number): void {
+        if (p == AnPins.P3 || p == AnPins.P4 || p == AnPins.P10) {
+            led.enable(false)
+            pins.setPull(p, PinPullMode.PullDown)
+        }
         if (motorRotation == MotorRotation.R1) {
             pins.servoWritePin(p, Math.map(v, 0, 100, 78, 0));
         } else {
