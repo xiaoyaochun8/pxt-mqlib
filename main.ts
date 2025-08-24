@@ -12,7 +12,11 @@ enum AnPins {
     //% block="P2"
     P2 = AnalogPin.P2,
     //% block="P3"
-    P3 = AnalogPin.P3
+    P3 = AnalogPin.P3,
+    //% block="P4"
+    P4 = AnalogPin.P4,
+    //% block="P10"
+    P10 = AnalogPin.P10
 }
 
 enum DgPins {
