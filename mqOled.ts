@@ -64,7 +64,7 @@ namespace mqlib {
         for (let y = 0; y < 13; y++) {
             for (let x = 0; x < 13; x++) {
                 if (im.pixel(x, y)) {
-                    OLED12864_I2C.pixel(x+26, y+2, 1)
+                    OLED12864_I2C.pixel(x+26, y+10, 1)
                 }
             }
         }
