@@ -1,14 +1,13 @@
 {
     "name": "pxt-mqlib",
-    "version": "4.2.1",
+    "version": "5.0.2",
     "description": "",
     "dependencies": {
         "core": "*",
         "radio": "*",
         "microphone": "*",
         "OLED12864_I2C": "github:makecode-extensions/oled12864_i2c#v1.5.0",
-        "MakerBit-IR-Receiver-mq": "github:xiaoyaochun8/pxt-makerbit-ir-receiver-mq#33c0622f82c69d650b0b4b1ce6eaa8543b079661",
-        "pxt-mqlib-oled2": "github:xiaoyaochun8/pxt-mqlib-oled2#2ebe969446ff4d1951bd1e706ae33e67261e56c9"
+        "MakerBit-IR-Receiver-mq": "github:xiaoyaochun8/pxt-makerbit-ir-receiver-mq#33c0622f82c69d650b0b4b1ce6eaa8543b079661"
     },
     "files": [
         "README.md",
@@ -23,7 +22,7 @@
     ],
     "public": true,
     "targetVersions": {
-        "target": "8.0.15",
+        "target": "8.0.16",
         "targetId": "microbit"
     },
     "supportedTargets": [

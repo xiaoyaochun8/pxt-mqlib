@@ -3,52 +3,6 @@
 * 想了解更详细的信息，请前往 https://makecode.microbit.org/blocks/custom
 */
 
-enum OledPic {
-    //% block="表情-开心"
-    Happy,
-    //% block="表情-伤心"
-    Sad,
-    //% block="表情-睡觉"
-    Sleep,
-    //% block="表情-生气"
-    Angry,
-    //% block="表情-惊讶"
-    Amazed,
-    //% block="人物-小人"
-    P1,
-    //% block="人物-火柴人"
-    P2,
-    //% block="人物-机器人"
-    P3,
-    //% block="人物-海底小纵队队长"
-    P4,
-    //% block="人物-汪汪队天天"
-    P5,
-    //% block="动物-小仓鼠"
-    a,
-    //% block="动物-b"
-    b,
-    //% block="文字-大"
-    Da,
-    //% block="文字-中"
-    Zhong,
-    //% block="文字-小"
-    Xiao,
-    //% block="文字-奇"
-    Qi,
-    //% block="风景-山峰"
-    Pic1,
-    //% block="风景-河流"
-    Pic2,
-}
-
-enum OledPic2 {
-    //% block="人物-海底小纵队队长"
-    P4,
-    //% block="人物-汪汪队天天"
-    P5,
-}
-
 /**
  * mqOled blocks
  */
@@ -110,7 +64,7 @@ namespace mqlib {
         for (let y = 0; y < 13; y++) {
             for (let x = 0; x < 13; x++) {
                 if (im.pixel(x, y)) {
-                    OLED12864_I2C.pixel(x+58, y+26, 1)
+                    OLED12864_I2C.pixel(x+26, y+10, 1)
                 }
             }
         }

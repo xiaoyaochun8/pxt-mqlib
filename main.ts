@@ -12,7 +12,11 @@ enum AnPins {
     //% block="P2"
     P2 = AnalogPin.P2,
     //% block="P3"
-    P3 = AnalogPin.P3
+    P3 = AnalogPin.P3,
+    //% block="P4"
+    P4 = AnalogPin.P4,
+    //% block="P10"
+    P10 = AnalogPin.P10
 }
 
 enum DgPins {
@@ -23,7 +27,18 @@ enum DgPins {
     //% block="P2"
     P2 = DigitalPin.P2,
     //% block="P3"
-    P3 = DigitalPin.P3
+    P3 = DigitalPin.P3,
+    //% block="P4"
+    P4 = DigitalPin.P4,
+    //% block="P10"
+    P10 = DigitalPin.P10
+}
+
+enum MotorRotation {
+    //% block="顺时针"
+    R1 = 1,
+    //% block="逆时针"
+    R2 = 2
 }
 
 /**
@@ -47,7 +62,6 @@ namespace mqlib {
     export function arc270(v: number): number {
         return Math.map(v, 0, 270, 0, 180);
     }
-
     /**
      * 设置270度舵机角度-270
      * @param v describe
@@ -57,9 +71,12 @@ namespace mqlib {
     //% weight=9
     //% v.min=0 v.max=270 v.defl=0
     export function setSteer270(p: AnPins, v: number): void {
+        if(p == AnPins.P3 || p == AnPins.P4 || p == AnPins.P10){
+            led.enable(false)
+            pins.setPull(p, PinPullMode.PullDown)
+        }
         pins.servoWritePin(p, Math.map(v, 0, 270, 0, 180));
     }
-
     /**
      * 设置270度舵机角度-10
      * @param v describe
@@ -69,7 +86,43 @@ namespace mqlib {
     //% weight=10
     //% v.shadow="protractorPicker"
     export function setSteer180_180(p: AnPins, v: number): void {
+        if (p == AnPins.P3 || p == AnPins.P4 || p == AnPins.P10) {
+            led.enable(false)
+            pins.setPull(p, PinPullMode.PullDown)
+        }
         pins.servoWritePin(p, Math.map(v, 0, 180, 35, 145));
+    }
+
+    /**
+     * 设置电机停止
+     */
+    //% block='设置 $p 电机停止'
+    //% group='电机'
+    //% weight=10
+    export function setMotorStop(p: AnPins): void {
+        if (p == AnPins.P3 || p == AnPins.P4 || p == AnPins.P10) {
+            led.enable(false)
+            pins.setPull(p, PinPullMode.PullDown)
+        }
+        pins.servoWritePin(p, 90);
+    }
+    /**
+     * 设置电机旋转方向和速度
+     */
+    //% block='设置 $p 电机旋转方向 $motorRotation 速度 $v'
+    //% group='电机'
+    //% weight=10
+    //% v.min=0 v.max=100 v.defl=0
+    export function setMotorRotationAndSpeed(p: AnPins, motorRotation: MotorRotation, v: number): void {
+        if (p == AnPins.P3 || p == AnPins.P4 || p == AnPins.P10) {
+            led.enable(false)
+            pins.setPull(p, PinPullMode.PullDown)
+        }
+        if (motorRotation == MotorRotation.R1) {
+            pins.servoWritePin(p, Math.map(v, 0, 100, 78, 0));
+        } else {
+            pins.servoWritePin(p, Math.map(v, 0, 100, 100, 180));
+        }
     }
 
     /**
