@@ -3,6 +3,23 @@
 * 想了解更详细的信息，请前往 https://makecode.microbit.org/blocks/custom
 */
 
+enum OledEye {
+    //% block="眨眼睛1"
+    Po1,
+    //% block="眨眼睛2"
+    Po2,
+    //% block="转圈1"
+    Pr1,
+    //% block="转圈2"
+    Pr2,
+    //% block="转圈3"
+    Pr3,
+    //% block="转圈4"
+    Pr4,
+    //% block="转圈5"
+    Pr5,
+}
+
 /**
  * mqOled blocks
  */
@@ -161,60 +178,31 @@ namespace mqlib {
     /**
      * advance ************************************************************************************************************************************************
      */
-    
     //% subcategory="oled"
     //% group='oled-眼睛'
     //% weight=94
-    //% block="oled眨眼睛图片1"
-    export function oledShowEye6(): void {
-        mqlib.oledDrawPicBy1024Hex(imVideo1_6);
-    }
-    //% subcategory="oled"
-    //% group='oled-眼睛'
-    //% weight=93
-    //% block="oled眨眼睛图片2"
-    export function oledShowEye7(): void {
-        mqlib.oledDrawPicBy1024Hex(imVideo1_5);
-    }
-    //% subcategory="oled"
-    //% group='oled-眼睛'
-    //% weight=92
-    //% block="oled眼睛转圈图片1"
-    export function oledShowEye1(): void {
-        mqlib.oledDrawPicBy1024Hex(imVideo1_1);
-    }
-    //% subcategory="oled"
-    //% group='oled-眼睛'
-    //% weight=91
-    //% block="oled眼睛转圈图片2"
-    export function oledShowEye2(): void {
-        mqlib.oledDrawPicBy1024Hex(imVideo1_2);
-    }
-    //% subcategory="oled"
-    //% group='oled-眼睛'
-    //% weight=90
-    //% block="oled眼睛转圈图片3"
-    export function oledShowEye3(): void {
-        mqlib.oledDrawPicBy1024Hex(imVideo1_3);
-    }
-    //% subcategory="oled"
-    //% group='oled-眼睛'
-    //% weight=89
-    //% block="oled眼睛转圈图片4"
-    export function oledShowEye4(): void {
-        mqlib.oledDrawPicBy1024Hex(imVideo1_4);
-    }
-    //% subcategory="oled"
-    //% group='oled-眼睛'
-    //% weight=88
-    //% block="oled眼睛转圈图片5"
-    export function oledShowEye5(): void {
-        mqlib.oledDrawPicBy1024Hex(imVideo1_5);
+    //% block="oled眼睛图片"
+    export function oledShowEye(oledEye: OledEye): void {
+        if (oledEye == OledEye.Po1) {
+            mqlib.oledDrawPicBy1024Hex(imVideo1_6)
+        } else if (oledEye == OledEye.Po2) {
+            mqlib.oledDrawPicBy1024Hex(imVideo1_5)
+        } else if (oledEye == OledEye.Pr1) {
+            mqlib.oledDrawPicBy1024Hex(imVideo1_1)
+        } else if (oledEye == OledEye.Pr2) {
+            mqlib.oledDrawPicBy1024Hex(imVideo1_2)
+        } else if (oledEye == OledEye.Pr3) {
+            mqlib.oledDrawPicBy1024Hex(imVideo1_3)
+        } else if (oledEye == OledEye.Pr4) {
+            mqlib.oledDrawPicBy1024Hex(imVideo1_4)
+        } else if (oledEye == OledEye.Pr5) {
+            mqlib.oledDrawPicBy1024Hex(imVideo1_5)
+        }
     }
     //% subcategory="oled"
     //% group='oled-眼睛'
     //% weight=86
-    //% block="oled眨眼睛一次"
+    //% block="oled眨眼睛一次动画"
     export function oledPlayEyeAnim(): void {
         mqlib.oledDrawPicBy1024Hex(imVideo1_6);
         mqlib.oledDrawPicBy1024Hex(imVideo1_5);
@@ -222,7 +210,7 @@ namespace mqlib {
     //% subcategory="oled"
     //% group='oled-眼睛'
     //% weight=85
-    //% block="oled眼睛转圈"
+    //% block="oled眼睛转圈一次动画"
     export function oledPlayEyeAnim2(): void {
         mqlib.oledDrawPicBy1024Hex(imVideo1_1);
         mqlib.oledDrawPicBy1024Hex(imVideo1_2);
