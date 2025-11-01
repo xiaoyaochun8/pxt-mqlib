@@ -181,7 +181,7 @@ namespace mqlib {
     //% subcategory="oled"
     //% group='oled-眼睛'
     //% weight=94
-    //% block="oled眼睛图片"
+    //% block="oled眼睛图片 $oledEye"
     export function oledShowEye(oledEye: OledEye): void {
         if (oledEye == OledEye.Po1) {
             mqlib.oledDrawPicBy1024Hex(imVideo1_6)
