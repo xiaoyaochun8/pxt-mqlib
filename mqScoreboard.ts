@@ -1,15 +1,16 @@
 /**
- * mqMath blocks
+ * mqScoreboard blocks
  */
 namespace mqlib {
-    let _a = 0;
-    let _b = 0;
-    let _symbol = '';
+    let leftName = '';
+    let rightName = '';
+    let leftScore = 0;
+    let rightScore = 0;
 
     //% subcategory="计分板"
-    //% block="a = $v"
+    //% block="初始化计分板 左边名字 右边名字"
     //% v.defl=1
-    export function test(v: number) {
-        _a = v;
+    export function initScoreboard(v: number) {
+        
     }
 }
