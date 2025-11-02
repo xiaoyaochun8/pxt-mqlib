@@ -22,7 +22,7 @@
     ],
     "public": true,
     "targetVersions": {
-        "target": "8.0.17",
+        "target": "8.0.18",
         "targetId": "microbit"
     },
     "supportedTargets": [
