@@ -17,18 +17,18 @@ namespace mqlib {
     //% subcategory="计分板"
     //% block="左边分数加1"
     export function setScoreboardLeftScoreAdd() {
-        _leftScore + 1;
+        _leftScore ++;
     }
     //% subcategory="计分板"
     //% block="右边分数加1"
     export function setScoreboardRightScoreAdd() {
-        _rightScore + 1;
+        _rightScore ++;
     }
 
     //% subcategory="计分板"
     //% block="计分板内容"
     export function getScoreboardStr(): string {
-        _scoreboardStr = `${_leftName} ${_leftScore}:${_rightScore} ${_rightScore}`;
+        _scoreboardStr = `${_leftName} ${_leftScore}:${_rightScore} ${_rightName}`;
         return _scoreboardStr;
     }
     //% subcategory="计分板"
