@@ -24,6 +24,16 @@ namespace mqlib {
     export function setScoreboardRightScoreAdd() {
         _rightScore ++;
     }
+    //% subcategory="计分板"
+    //% block="左边分数减1"
+    export function setScoreboardLeftScoreSub() {
+        _leftScore--;
+    }
+    //% subcategory="计分板"
+    //% block="右边分数减1"
+    export function setScoreboardRightScoreSub() {
+        _rightScore--;
+    }
 
     //% subcategory="计分板"
     //% block="计分板内容"
