@@ -14,11 +14,32 @@ namespace mqlib {
         _leftName = leftName;
         _rightName = rightName;
     }
+    //% subcategory="计分板"
+    //% block="左边分数加1"
+    export function setScoreboardLeftScoreAdd() {
+        _leftScore + 1;
+    }
+    //% subcategory="计分板"
+    //% block="右边分数加1"
+    export function setScoreboardRightScoreAdd() {
+        _rightScore + 1;
+    }
 
     //% subcategory="计分板"
     //% block="计分板内容"
     export function getScoreboardStr(): string {
+        _scoreboardStr = `${_leftName} ${_leftScore}:${_rightScore} ${_rightScore}`;
         return _scoreboardStr;
+    }
+    //% subcategory="计分板"
+    //% block="左边分数"
+    export function getScoreboardLeftScore(): number {
+        return _leftScore;
+    }
+    //% subcategory="计分板"
+    //% block="右边分数"
+    export function getScoreboardRightScore(): number {
+        return _rightScore;
     }
 
 }
