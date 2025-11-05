@@ -1,6 +1,5 @@
 /**
-* 使用此文件来定义自定义函数和图形块。
-* 想了解更详细的信息，请前往 https://makecode.microbit.org/blocks/custom
+* 保留基础函数（画布、pixel/hex模式、橡皮擦）及画图、表情、雪人图片、简单动画
 */
 
 enum OledEye {
@@ -23,7 +22,7 @@ enum OledEye {
 /**
  * mqOled blocks
  */
-//% groups=['oled-形状','oled-橡皮檫','oled-中文','oled-表情','oled-人物','oled-动画','oled-画图']
+//% groups=['oled-使用画布画图','oled-橡皮檫','oled-简单动画','oled-眼睛','oled-雪人']
 namespace mqlib {
     /**
      * Create a 128x64 pixel matrix for use as a custom character.
@@ -40,7 +39,7 @@ namespace mqlib {
         return <Image><any>i;
     }
     /**
-     * Create a 13x13 pixel matrix for use as a custom character.
+     * Create a 13x13 pixel matrix for use as a custom character.（汉字为16x16）
      */
     //% subcategory="oled"
     //% group='oled-使用画布画图'
