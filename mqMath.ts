@@ -11,6 +11,8 @@ namespace mqlib {
     let _a = 0;
     let _b = 0;
     let _symbol = '';
+    let _questionStr = '';
+    let _result = 0;
 
     //% subcategory="数学"
     //% block="我的计算结果是？$v"
@@ -47,5 +49,33 @@ namespace mqlib {
     //% v.defl=1
     export function setA(v: number) {
         _a = v;
+    }
+    
+    //% subcategory="数学"
+    //% block="出一道题"
+    export function createAQuestion() {
+        _a = 1;
+        _b = 1;
+        _symbol = 'p';
+    }
+    //% subcategory="数学"
+    //% block="获得题目"
+    export function getQuestionStr(): string {
+        if(_symbol == 'p'){
+            _questionStr = `${_a} + ${_b} =`;
+        }else{
+            _questionStr = `${_a} - ${_b} =`;
+        }
+        return _questionStr;
+    }
+    //% subcategory="数学"
+    //% block="获得题目答案"
+    export function getResult(): number {
+        if(_symbol == 'p'){
+            _result = _a + _b;
+        }else{
+            _result = _a - _b;
+        }
+        return _result;
     }
 }
