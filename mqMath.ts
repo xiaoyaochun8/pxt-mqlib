@@ -13,6 +13,7 @@ namespace mqlib {
     let _symbol = '';
     let _questionStr = '';
     let _result = 0;
+    let _resultOfMine = '';
 
     //% subcategory="数学"
     //% block="我的计算结果是？$v"
@@ -69,7 +70,7 @@ namespace mqlib {
         return _questionStr;
     }
     //% subcategory="数学"
-    //% block="获得题目答案"
+    //% block="获取题目答案"
     export function getResult(): number {
         if(_symbol == 'p'){
             _result = _a + _b;
@@ -77,5 +78,15 @@ namespace mqlib {
             _result = _a - _b;
         }
         return _result;
+    }
+    //% subcategory="数学"
+    //% block="暂存我的答案"
+    export function saveResultOfMine(v: number) {
+        _resultOfMine = _resultOfMine + v.toString();
+    }
+    //% subcategory="数学"
+    //% block="获取我的答案"
+    export function getResultOfMine(): number {
+        return parseInt(_resultOfMine);
     }
 }
