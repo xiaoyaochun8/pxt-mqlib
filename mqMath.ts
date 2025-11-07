@@ -13,9 +13,13 @@ namespace mqlib {
     let _symbol = '';
     let _questionStr = '';
     let _result = 0;
+    //模式2
     let _resultOfMine = '';
+    //模式3
+    let _result3 = false;
 
     //% subcategory="数学"
+    //% group='模式1'
     //% block="我的计算结果是？$v"
     export function checkRet(v: number) {
         if (_symbol == 'p' && v == _a + _b) {
@@ -30,22 +34,26 @@ namespace mqlib {
         }
     }
     //% subcategory="数学"
+    //% group='模式1'
     //% block="a - b = ?"
     export function setA_Sub_B() {
         _symbol = 's';
     }
     //% subcategory="数学"
+    //% group='模式1'
     //% block="a + b = ?"
     export function setA_Plus_B() {
         _symbol = 'p';
     }
     //% subcategory="数学"
+    //% group='模式1'
     //% block="b = $v"
     //% v.defl=2
     export function setB(v: number) {
         _b = v;
     }
     //% subcategory="数学"
+    //% group='模式1'
     //% block="a = $v"
     //% v.defl=1
     export function setA(v: number) {
@@ -53,6 +61,7 @@ namespace mqlib {
     }
     
     //% subcategory="数学"
+    //% group='模式2'
     //% block="出一道题"
     export function createAQuestion() {
         _a = 1;
@@ -60,6 +69,7 @@ namespace mqlib {
         _symbol = 'p';
     }
     //% subcategory="数学"
+    //% group='模式2'
     //% block="获得题目"
     export function getQuestionStr(): string {
         if(_symbol == 'p'){
@@ -70,6 +80,7 @@ namespace mqlib {
         return _questionStr;
     }
     //% subcategory="数学"
+    //% group='模式2'
     //% block="获取题目答案"
     export function getResult(): number {
         if(_symbol == 'p'){
@@ -80,13 +91,44 @@ namespace mqlib {
         return _result;
     }
     //% subcategory="数学"
+    //% group='模式2'
     //% block="暂存我的答案"
     export function saveResultOfMine(v: number) {
         _resultOfMine = _resultOfMine + v.toString();
     }
     //% subcategory="数学"
+    //% group='模式2'
     //% block="获取我的答案"
     export function getResultOfMine(): number {
         return parseInt(_resultOfMine);
+    }
+    
+    //% subcategory="数学"
+    //% group='模式3'
+    //% block="出一道题"
+    export function createAQuestion3() {
+        _a = 1;
+        _b = 1;
+        _symbol = 'p';
+    }
+    //% subcategory="数学"
+    //% group='模式2'
+    //% block="获得题目"
+    export function getQuestionStr3(): string {
+        if(_symbol == 'p'){
+            _result = _a + _b;
+            _questionStr = `${_a} + ${_b} = ${_result} ?`;
+        }else{
+            _result = _a - _b;
+            _questionStr = `${_a} - ${_b} = ${_result} ?`;
+        }
+        _result3 = true;
+        return _questionStr;
+    }
+    //% subcategory="数学"
+    //% group='模式3'
+    //% block="获取题目答案"
+    export function getResult(): boolean {
+        return _result3;
     }
 }
