@@ -128,7 +128,7 @@ namespace mqlib {
     //% subcategory="数学"
     //% group='模式3'
     //% block="获取题目答案"
-    export function getResult(): boolean {
+    export function getResult3(): boolean {
         return _result3;
     }
 }
