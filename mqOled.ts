@@ -91,7 +91,7 @@ namespace mqlib {
     //% block="oled矩形区域橡皮檫 x $xStart y $yStart 宽度 $width 高度 $height 颜色 $color"
     export function oledDrawRectAreaClean(xStart: number, yStart: number, width: number, height: number, color: number = 0): void {
         OLED12864_I2C.clearRectArea(xStart, yStart, width, height, color)
-            }
+    }
     
     //% subcategory="oled"
     //% group='oled-简单动画'
