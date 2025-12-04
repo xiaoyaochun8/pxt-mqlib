@@ -15,7 +15,6 @@
         "main.ts",
         "tutorial-info-cache.json",
         "mqMath.ts",
-        "mqOled.ts",
         "mqScoreboard.ts"
     ],
     "testFiles": [
