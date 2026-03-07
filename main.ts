@@ -140,11 +140,11 @@ namespace mqlib {
         return value;
     }
     /**
-     * 设置Led灯引脚和颜色
+     * 初始化Led灯引脚和颜色
      * @param v describe
      */
     //% subcategory="红绿蓝黄灯"
-    //% block='设置Led灯引脚 $p 颜色 $color'
+    //% block='初始化Led灯引脚 $p 颜色 $color'
     //% group='Led'
     //% weight=10
     //% color.shadow="colorNumberPicker2"
