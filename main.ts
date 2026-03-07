@@ -158,18 +158,15 @@ namespace mqlib {
         }
     }
     /**
-     * 设置Led灯引脚和颜色
+     * 打开x颜色灯
      * @param v describe
      */
     //% subcategory="红绿蓝黄灯"
-    //% block='控制Led灯颜色 $color'
+    //% block='打开 $color 颜色灯'
     //% group='Led'
     //% weight=9
     //% color.shadow="colorNumberPicker2"
-    export function setLedColor(color: number): void {
-        pins.digitalWritePin(_ledRedPin, 0)
-        pins.digitalWritePin(_ledGreenPin, 0)
-        pins.digitalWritePin(_ledBluePin, 0)
+    export function turnOnLedColor(color: number): void {
         if (color == 16711680) {
             pins.digitalWritePin(_ledRedPin, 1)
         } else if (color == 65280) {
@@ -178,5 +175,48 @@ namespace mqlib {
             pins.digitalWritePin(_ledBluePin, 1)
         }
     }
-
+    /**
+     * 关闭x颜色灯
+     * @param v describe
+     */
+    //% subcategory="红绿蓝黄灯"
+    //% block='关闭 $color 颜色灯'
+    //% group='Led'
+    //% weight=9
+    //% color.shadow="colorNumberPicker2"
+    export function turnOffLedColor(color: number): void {
+        if (color == 16711680) {
+            pins.digitalWritePin(_ledRedPin, 0)
+        } else if (color == 65280) {
+            pins.digitalWritePin(_ledGreenPin, 0)
+        } else if (color == 255 || color == 16776960) {
+            pins.digitalWritePin(_ledBluePin, 0)
+        }
+    }
+    /**
+     * 打开全部颜色灯
+     * @param v describe
+     */
+    //% subcategory="红绿蓝黄灯"
+    //% block='打开全部颜色灯'
+    //% group='Led'
+    //% weight=9
+    export function trunOnAllLedColor(): void {
+        pins.digitalWritePin(_ledRedPin, 1)
+        pins.digitalWritePin(_ledGreenPin, 1)
+        pins.digitalWritePin(_ledBluePin, 1)
+    }
+    /**
+     * 关闭全部颜色灯
+     * @param v describe
+     */
+    //% subcategory="红绿蓝黄灯"
+    //% block='关闭全部颜色灯'
+    //% group='Led'
+    //% weight=9
+    export function trunOffAllLedColor(): void {
+        pins.digitalWritePin(_ledRedPin, 0)
+        pins.digitalWritePin(_ledGreenPin, 0)
+        pins.digitalWritePin(_ledBluePin, 0)
+    }
 }
