@@ -45,7 +45,7 @@ enum MotorRotation {
  * mqlib blocks
  */
 //% weight=100 color=#5c2d91 icon=""
-//% groups=['舵机270','Servo180','Led','others']
+//% groups=['舵机270','舵机180','电机','Led','others']
 namespace mqlib {
 
     let _ledRedPin = 0;
