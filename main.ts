@@ -1,52 +1,46 @@
-
-/**
-* 使用此文件来定义自定义函数和图形块。
-* 想了解更详细的信息，请前往 https://makecode.microbit.org/blocks/custom
-*/
-
-enum AnPins {
-    //% block="P0"
-    P0 = AnalogPin.P0,
-    //% block="P1"
-    P1 = AnalogPin.P1,
-    //% block="P2"
-    P2 = AnalogPin.P2,
-    //% block="P3"
-    P3 = AnalogPin.P3,
-    //% block="P4"
-    P4 = AnalogPin.P4,
-    //% block="P10"
-    P10 = AnalogPin.P10
-}
-
-enum DgPins {
-    //% block="P0"
-    P0 = DigitalPin.P0,
-    //% block="P1"
-    P1 = DigitalPin.P1,
-    //% block="P2"
-    P2 = DigitalPin.P2,
-    //% block="P3"
-    P3 = DigitalPin.P3,
-    //% block="P4"
-    P4 = DigitalPin.P4,
-    //% block="P10"
-    P10 = DigitalPin.P10
-}
-
-enum MotorRotation {
-    //% block="顺时针"
-    R1 = 1,
-    //% block="逆时针"
-    R2 = 2
-}
-
 /**
  * mqlib blocks
  */
 //% weight=100 color=#5c2d91 icon=""
 //% groups=['舵机270','舵机180','电机','Led','others']
 namespace mqlib {
+
+    enum AnPins {
+        //% block="P0"
+        P0 = AnalogPin.P0,
+        //% block="P1"
+        P1 = AnalogPin.P1,
+        //% block="P2"
+        P2 = AnalogPin.P2,
+        //% block="P3"
+        P3 = AnalogPin.P3,
+        //% block="P4"
+        P4 = AnalogPin.P4,
+        //% block="P10"
+        P10 = AnalogPin.P10
+    }
+
+    enum DgPins {
+        //% block="P0"
+        P0 = DigitalPin.P0,
+        //% block="P1"
+        P1 = DigitalPin.P1,
+        //% block="P2"
+        P2 = DigitalPin.P2,
+        //% block="P3"
+        P3 = DigitalPin.P3,
+        //% block="P4"
+        P4 = DigitalPin.P4,
+        //% block="P10"
+        P10 = DigitalPin.P10
+    }
+
+    enum MotorRotation {
+        //% block="顺时针"
+        R1 = 1,
+        //% block="逆时针"
+        R2 = 2
+    }
 
     let _ledRedPin = 0;
     let _ledGreenPin = 0;
