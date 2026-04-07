@@ -60,7 +60,7 @@ namespace mqlib {
      * 设置270度舵机角度-270
      * @param v describe
      */
-    //% block='/\\ 270度模式：设置 $p 舵机角度 $v'
+    //% block='/\\ 270度模式：设置舵机 $p 角度 $v'
     //% group='舵机270'
     //% weight=9
     //% v.min=0 v.max=270 v.defl=0
@@ -75,7 +75,7 @@ namespace mqlib {
      * 设置270度舵机角度-10
      * @param v describe
      */
-    //% block='——!—— 180度模式：设置 $p 舵机角度 $v'
+    //% block='——!—— 180度模式：设置舵机 $p 角度 $v'
     //% group='舵机180'
     //% weight=10
     //% v.shadow="protractorPicker"
@@ -90,7 +90,7 @@ namespace mqlib {
     /**
      * 设置电机停止
      */
-    //% block='设置 $p 电机停止'
+    //% block='设置电机 $p 停止'
     //% group='电机'
     //% weight=10
     export function setMotorStop(p: AnPins): void {
@@ -103,7 +103,7 @@ namespace mqlib {
     /**
      * 设置电机旋转方向和速度
      */
-    //% block='设置 $p 电机旋转方向 $motorRotation 速度 $v'
+    //% block='设置电机 $p 旋转方向 $motorRotation 速度 $v'
     //% group='电机'
     //% weight=10
     //% v.min=0 v.max=100 v.defl=0
