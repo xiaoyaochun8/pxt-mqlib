@@ -5,7 +5,7 @@
 //% groups=['舵机270','舵机180','电机','Led','others']
 namespace mqlib {
 
-    enum AnPins {
+    export enum AnPins {
         //% block="P0"
         P0 = AnalogPin.P0,
         //% block="P1"
@@ -20,7 +20,7 @@ namespace mqlib {
         P10 = AnalogPin.P10
     }
 
-    enum DgPins {
+    export enum DgPins {
         //% block="P0"
         P0 = DigitalPin.P0,
         //% block="P1"
@@ -35,7 +35,7 @@ namespace mqlib {
         P10 = DigitalPin.P10
     }
 
-    enum MotorRotation {
+    export enum MotorRotation {
         //% block="顺时针"
         R1 = 1,
         //% block="逆时针"
