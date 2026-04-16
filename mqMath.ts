@@ -11,12 +11,6 @@ namespace mqlib {
     let _a = 0;
     let _b = 0;
     let _symbol = '';
-    let _questionStr = '';
-    let _result = 0;
-    //模式2
-    let _resultOfMine = '';
-    //模式3
-    let _result3 = false;
 
     //% subcategory="数学"
     //% group='模式1'
@@ -60,89 +54,13 @@ namespace mqlib {
         _a = v;
     }
     
-    
+
     
     //% subcategory="数学"
     //% group='模式2'
-    //% block="出一道题"
-    export function createAQuestion() {
-        _a = 1;
-        _b = 1;
-        _symbol = 'p';
-    }
-    //% subcategory="数学"
-    //% group='模式2'
-    //% block="获得题目"
-    export function getQuestionStr(): string {
-        if(_symbol == 'p'){
-            _questionStr = `${_a} + ${_b} =`;
-        }else{
-            _questionStr = `${_a} - ${_b} =`;
-        }
-        return _questionStr;
-    }
-    //% subcategory="数学"
-    //% group='模式2'
-    //% block="获取题目答案"
-    export function getResult(): number {
-        if(_symbol == 'p'){
-            _result = _a + _b;
-        }else{
-            _result = _a - _b;
-        }
-        return _result;
-    }
-    //% subcategory="数学"
-    //% group='模式2'
-    //% block="暂存我的答案"
-    export function saveResultOfMine(v: number) {
-        _resultOfMine = _resultOfMine + v.toString();
-    }
-    //% subcategory="数学"
-    //% group='模式2'
-    //% block="获取我的答案"
-    export function getResultOfMine(): number {
-        return parseInt(_resultOfMine);
-    }
-    
-    //% subcategory="数学"
-    //% group='模式3'
-    //% block="出一道题"
-    export function createAQuestion3() {
-        _a = 1;
-        _b = 1;
-        _symbol = 'p';
-    }
-    //% subcategory="数学"
-    //% group='模式2'
-    //% block="获得题目"
-    export function getQuestionStr3(): string {
-        if(_symbol == 'p'){
-            _result = _a + _b;
-            _questionStr = `${_a} + ${_b} = ${_result} ?`;
-        }else{
-            _result = _a - _b;
-            _questionStr = `${_a} - ${_b} = ${_result} ?`;
-        }
-        _result3 = true;
-        return _questionStr;
-    }
-    
-    
-    
-    //% subcategory="数学"
-    //% group='模式3'
-    //% block="获取题目答案"
-    export function getResult3(): boolean {
-        return _result3;
-    }
-    
-    
-    //% subcategory="数学"
-    //% group='模式4'
-    //% block="$a + $b = $c"
-    export function getAddRet4(a: number, b: number, c: number): void {
-        if(c == a + b){
+    //% block="$a - $b = $c"
+    export function getSubRet4(a: number, b: number, c: number): void {
+        if(c == a - b){
             basic.showIcon(IconNames.Yes);
             music.play(music.builtinPlayableSoundEffect(soundExpression.hello), music.PlaybackMode.UntilDone);
         }else{
@@ -151,10 +69,10 @@ namespace mqlib {
         }
     }
     //% subcategory="数学"
-    //% group='模式4'
-    //% block="$a - $b = $c"
-    export function getSubRet4(a: number, b: number, c: number): void {
-        if(c == a - b){
+    //% group='模式2'
+    //% block="$a + $b = $c"
+    export function getPlusRet4(a: number, b: number, c: number): void {
+        if(c == a + b){
             basic.showIcon(IconNames.Yes);
             music.play(music.builtinPlayableSoundEffect(soundExpression.hello), music.PlaybackMode.UntilDone);
         }else{
