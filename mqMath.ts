@@ -60,6 +60,8 @@ namespace mqlib {
         _a = v;
     }
     
+    
+    
     //% subcategory="数学"
     //% group='模式2'
     //% block="出一道题"
@@ -125,10 +127,39 @@ namespace mqlib {
         _result3 = true;
         return _questionStr;
     }
+    
+    
+    
     //% subcategory="数学"
     //% group='模式3'
     //% block="获取题目答案"
     export function getResult3(): boolean {
         return _result3;
+    }
+    
+    
+    //% subcategory="数学"
+    //% group='模式4'
+    //% block="$a + $b = $c"
+    export function getAddRet4(a: number, b: number, c: number): void {
+        if(c == a + b){
+            basic.showIcon(IconNames.Yes);
+            music.play(music.builtinPlayableSoundEffect(soundExpression.hello), music.PlaybackMode.UntilDone);
+        }else{
+            basic.showIcon(IconNames.No);
+            music.play(music.builtinPlayableSoundEffect(soundExpression.sad), music.PlaybackMode.UntilDone);
+        }
+    }
+    //% subcategory="数学"
+    //% group='模式4'
+    //% block="$a - $b = $c"
+    export function getSubRet4(a: number, b: number, c: number): void {
+        if(c == a - b){
+            basic.showIcon(IconNames.Yes);
+            music.play(music.builtinPlayableSoundEffect(soundExpression.hello), music.PlaybackMode.UntilDone);
+        }else{
+            basic.showIcon(IconNames.No);
+            music.play(music.builtinPlayableSoundEffect(soundExpression.sad), music.PlaybackMode.UntilDone);
+        }
     }
 }
