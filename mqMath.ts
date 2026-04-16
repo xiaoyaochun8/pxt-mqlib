@@ -59,7 +59,7 @@ namespace mqlib {
     //% subcategory="数学"
     //% group='模式2'
     //% block="$a - $b = $c"
-    export function getSubRet4(a: number, b: number, c: number): void {
+    export function getSubRet_2(a: number, b: number, c: number): void {
         if(c == a - b){
             basic.showIcon(IconNames.Yes);
             music.play(music.builtinPlayableSoundEffect(soundExpression.hello), music.PlaybackMode.UntilDone);
@@ -71,7 +71,7 @@ namespace mqlib {
     //% subcategory="数学"
     //% group='模式2'
     //% block="$a + $b = $c"
-    export function getPlusRet4(a: number, b: number, c: number): void {
+    export function getPlusRet_2(a: number, b: number, c: number): void {
         if(c == a + b){
             basic.showIcon(IconNames.Yes);
             music.play(music.builtinPlayableSoundEffect(soundExpression.hello), music.PlaybackMode.UntilDone);
