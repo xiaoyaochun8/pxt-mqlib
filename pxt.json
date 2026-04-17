@@ -5,8 +5,7 @@
     "dependencies": {
         "core": "*",
         "radio": "*",
-        "microphone": "*",
-        "MakerBit-IR-Receiver-mq": "github:xiaoyaochun8/pxt-makerbit-ir-receiver-mq#33c0622f82c69d650b0b4b1ce6eaa8543b079661"
+        "microphone": "*"
     },
     "files": [
         "README.md",
