@@ -12,7 +12,8 @@
         "main.blocks",
         "main.ts",
         "tutorial-info-cache.json",
-        "mp3.ts"
+        "mp3.ts",
+        "colorSensor.ts"
     ],
     "testFiles": [
         "test.ts"
