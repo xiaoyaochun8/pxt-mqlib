@@ -1,6 +1,6 @@
 {
     "name": "pxt-mqlib",
-    "version": "8.0.3",
+    "version": "8.1.0",
     "description": "",
     "dependencies": {
         "core": "*",
@@ -11,14 +11,16 @@
         "README.md",
         "main.blocks",
         "main.ts",
-        "tutorial-info-cache.json"
+        "tutorial-info-cache.json",
+        "mp3.ts",
+        "colorSensor.ts"
     ],
     "testFiles": [
         "test.ts"
     ],
     "public": true,
     "targetVersions": {
-        "target": "8.0.21",
+        "target": "8.0.22",
         "targetId": "microbit"
     },
     "supportedTargets": [
