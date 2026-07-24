@@ -60,6 +60,7 @@ namespace mqlib {
      * 设置270度舵机角度-270
      * @param v describe
      */
+    //% subcategory="电机"
     //% block='/\\ 270度模式：设置舵机 $p 角度 $v'
     //% group='舵机270'
     //% weight=9
@@ -75,6 +76,7 @@ namespace mqlib {
      * 设置270度舵机角度-10
      * @param v describe
      */
+    //% subcategory="电机"
     //% block='——!—— 180度模式：设置舵机 $p 角度 $v'
     //% group='舵机180'
     //% weight=10
@@ -90,6 +92,7 @@ namespace mqlib {
     /**
      * 设置电机停止
      */
+    //% subcategory="电机"
     //% block='设置电机 $p 停止'
     //% group='电机'
     //% weight=10
@@ -103,6 +106,7 @@ namespace mqlib {
     /**
      * 设置电机旋转方向和速度
      */
+    //% subcategory="电机"
     //% block='设置电机 $p 旋转方向 $motorRotation 速度 $v'
     //% group='电机'
     //% weight=10
